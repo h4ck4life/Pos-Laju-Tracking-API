@@ -2,7 +2,9 @@
   "name": "poslaju",
   "version": "0.0.1",
   "author": "",
-  "dependencies": {},
+  "dependencies": {
+    "geddy": "~0.8.13"
+  },
   "devDependencies": {},
   "engines": {
     "node": "0.8.x"
