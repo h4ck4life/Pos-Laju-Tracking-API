@@ -1,1 +1,1 @@
-web: geddy --port=8888
+web: geddy --port=$PORT
