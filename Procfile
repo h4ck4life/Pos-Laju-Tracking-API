@@ -1,1 +1,1 @@
-web: geddy -e $NODE_ENV
+web: geddy -e development
