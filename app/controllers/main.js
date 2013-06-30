@@ -77,7 +77,17 @@ var engine = (function(idx, app) {
 	  
 	});
 	
-	app.respond(JSON.stringify(posDetails), {
+	var parentx = {
+	  meta: {
+	    author: '@h4ck4life',
+	    about: 'Pos Laju Tracking API - Free',
+	    email: 'alifaziz@gmail.com',
+	    version: '0.0.1'
+	  },
+	  data: posDetails
+	};
+	
+	app.respond(JSON.stringify(parentx), {
 	  format: 'txt'
 	, template: 'app/views/main/get'
 	});
