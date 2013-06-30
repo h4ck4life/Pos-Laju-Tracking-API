@@ -1,1 +1,1 @@
-web: geddy -e development
+web: geddy --port=8888
