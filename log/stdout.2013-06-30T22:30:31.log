@@ -1,0 +1,63 @@
+[Sun, 30 Jun 2013 10:13:50 GMT] INFO Server starting with config: {
+  "environment": "development",
+  "workers": 1,
+  "port": "8888",
+  "spdy": null,
+  "ssl": null,
+  "debug": true,
+  "rotateWorkers": false,
+  "rotationWindow": 7200000,
+  "rotationTimeout": 300000,
+  "logDir": "/home/user/nodejs/poslaju/log",
+  "gracefulShutdownTimeout": 30000,
+  "heartbeatInterval": 5000,
+  "heartbeatWindow": 20000,
+  "staticFilePath": "/home/user/nodejs/poslaju/public",
+  "sessions": {
+    "store": "memory",
+    "key": "sid",
+    "expiry": 1209600
+  },
+  "cookieSessionKey": "sdata",
+  "i18n": {
+    "defaultLocale": "en-us",
+    "loadPaths": [
+      "/home/user/nodejs/poslaju/config/locales"
+    ]
+  },
+  "hostname": null,
+  "fullHostname": null,
+  "connectCompatibility": false,
+  "detailedErrors": true,
+  "model": {
+    "defaultAdapter": "memory"
+  }
+}
+[Sun, 30 Jun 2013 10:13:50 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 10:13:50 GMT] INFO Server worker running in development on port 8888 with a PID of: 10271
+[Sun, 30 Jun 2013 14:11:04 GMT] INFO Code changed, killing 10271, cycling ...
+[Sun, 30 Jun 2013 14:11:04 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:11:05 GMT] INFO Server worker running in development on port 8888 with a PID of: 23517
+[Sun, 30 Jun 2013 14:11:25 GMT] INFO Code changed, killing 23517, cycling ...
+[Sun, 30 Jun 2013 14:11:25 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:11:25 GMT] INFO Server worker running in development on port 8888 with a PID of: 23818
+[Sun, 30 Jun 2013 14:12:44 GMT] INFO Code changed, killing 23818, cycling ...
+[Sun, 30 Jun 2013 14:12:44 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:12:44 GMT] INFO Code changed, killing 25000, cycling ...
+[Sun, 30 Jun 2013 14:12:44 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:12:44 GMT] INFO Server worker running in development on port 8888 with a PID of: 25001
+[Sun, 30 Jun 2013 14:13:32 GMT] INFO Code changed, killing 25001, cycling ...
+[Sun, 30 Jun 2013 14:13:32 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:13:32 GMT] INFO Code changed, killing 25907, cycling ...
+[Sun, 30 Jun 2013 14:13:32 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:13:32 GMT] INFO Server worker running in development on port 8888 with a PID of: 25908
+[Sun, 30 Jun 2013 14:23:48 GMT] INFO Code changed, killing 25908, cycling ...
+[Sun, 30 Jun 2013 14:23:48 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:23:48 GMT] INFO Code changed, killing 31674, cycling ...
+[Sun, 30 Jun 2013 14:23:48 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:23:48 GMT] INFO Server worker running in development on port 8888 with a PID of: 31675
+[Sun, 30 Jun 2013 14:26:05 GMT] INFO Code changed, killing 31675, cycling ...
+[Sun, 30 Jun 2013 14:26:05 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:26:05 GMT] INFO Code changed, killing 31692, cycling ...
+[Sun, 30 Jun 2013 14:26:05 GMT] INFO Creating 1 worker process.
+[Sun, 30 Jun 2013 14:26:05 GMT] INFO Server worker running in development on port 8888 with a PID of: 31693
