@@ -15,13 +15,13 @@
  * limitations under the License.
  *
 */
-
-
 var router = new geddy.RegExpRouter();
 
-router.get('/').to('Main.index');
-router.get('/track/:id').to('Main.get');
-router.get('/price/domestic/:gram/zon/:id').to('Main.priceDomestic');
+router.get("/").to("Main.index");
+
+router.get("/track/:id").to("Main.get");
+
+router.get("/price/domestic/:gram/zon/:id").to("Main.priceDomestic");
 
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');
@@ -40,5 +40,4 @@ router.get('/price/domestic/:gram/zon/:id').to('Main.priceDomestic');
 //   this.resource('countries');
 //   this.get('/print(.:format)').to('Hemispheres.print');
 // });
-
 exports.router = router;

@@ -15,20 +15,19 @@
  * limitations under the License.
  *
 */
-
 var config = {
-  detailedErrors: true
-, debug: true
-, hostname: null
-, port: 4000
-, model: {
-    defaultAdapter: 'memory'
-  }
-, sessions: {
-    store: 'memory'
-  , key: 'sid'
-  , expiry: 14 * 24 * 60 * 60
-  }
+    detailedErrors: true,
+    debug: true,
+    hostname: null,
+    port: 4e3,
+    model: {
+        defaultAdapter: "memory"
+    },
+    sessions: {
+        store: "memory",
+        key: "sid",
+        expiry: 14 * 24 * 60 * 60
+    }
 };
 
 module.exports = config;

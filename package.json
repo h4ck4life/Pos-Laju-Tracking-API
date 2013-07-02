@@ -1,7 +1,7 @@
 {
   "name": "poslaju",
   "version": "0.0.1",
-  "author": "",
+  "author": "Alif",
   "dependencies": {
     "geddy": "~0.8.13"
   },
