@@ -1,5 +1,30 @@
 <div class="hero-unit geddy-welcome-box">
   <h1>Pos Laju Tracking API</h1>
   <p>Simple API to retrieve parcel delivery status from Pos Laju. Feel free to use it.</p>
-  <p><%- linkTo('Here is the demo »', 'http://poslajutracking.herokuapp.com/pos/get/EM417670204MY', {class: 'btn btn-primary btn-large'}) %></p>
+  <p>
+  <%- linkTo('Get Tracking Demo »', 'http://poslajutracking.herokuapp.com/track/EM417670204MY', {class: 'btn btn-primary btn-large'}) %>
+  <%- linkTo('Get Pricing Demo »', 'http://poslajutracking.herokuapp.com/price/domestic/0.5/zon/2', {class: 'btn btn-primary btn-large'}) %>
+  </p>
+</div>
+<div class="hero-unit">
+  <h3>Tracking</h3>
+  <p>
+    Get Tracking<br />
+    http://poslajutracking.herokuapp.com/track/<b>{parcel id}</b><br /><br />
+    <i>Example:</i><br />
+    <i>http://poslajutracking.herokuapp.com/track/EM417670204MY</i><br /><br />
+  </p>
+  <h3>Pricing</h3>
+  <p>
+    Get Pricing<br />
+    http://poslajutracking.herokuapp.com/price/domestic/<b>{weigh in grams}</b>/zon/<b>{location zon ID}</b><br /><br />
+    <i>Example:</i><br />
+    <i>http://poslajutracking.herokuapp.com/price/domestic/250/zon/2</i><br /><br />
+    <b>Zon ID reference:</b><br />
+    1 = Dalam Bandar Yang Sama<br />
+    2 = Dalam Semenanjung / Sabah /Sarawak<br />
+    3 = Antara Sabah Dan Sarawak<br />
+    4 = Antara Semenanjung Dengan Sarawak<br />
+    5 = Antara Semenanjung Dengan Sabah<br />
+  </p>
 </div>

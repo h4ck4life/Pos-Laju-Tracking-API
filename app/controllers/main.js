@@ -19,9 +19,14 @@
 var request = require('request');
 var cheerio = require('cheerio');
 
+var metainfo =  {
+	author: '@h4ck4life',
+	about: 'Pos Laju Tracking API - Free',
+	email: 'alifaziz@gmail.com',
+	version: '0.0.1'
+    }
 
-
-var engine = (function(idx, app) {
+var parseTrackingID = (function(idx, app) {
     
   var url = 'http://www.pos.com.my/emstrack/viewdetail.asp?parcelno=' + idx;
 
@@ -32,22 +37,17 @@ var engine = (function(idx, app) {
 	$ = cheerio.load(body);
 	
 	// TODO: scraping goes here!
-
 	var posDetails = [];
 	
 	$('.login tr').each(function(index, elem) {
-	  
 	  if(index > 0) {
-	    
 	    var posContent = {};
 	    
 	    $(this).find('td').each(function(index, elem) {
-	      
 		var txtContent = $(this).html();
 		txtContent = txtContent.replace('<br>', ' to ');
 		
 		switch(index) {
-		  
 		  case 0:
 		    posContent.date = $(txtContent).text();
 		    break;
@@ -62,42 +62,86 @@ var engine = (function(idx, app) {
 		    
 		  case 3:
 		    posContent.office = $(txtContent).text();
-		    break;
-		    
+		    break;    
 		}
 		
 	    });
 	    
 	    posDetails.push(posContent);
 	    
-	  } else {
-	  
-	    
-	  }
+	  } else {}
 	  
 	});
 	
 	var parentx = {
-	  meta: {
-	    author: '@h4ck4life',
-	    about: 'Pos Laju Tracking API - Free',
-	    email: 'alifaziz@gmail.com',
-	    version: '0.0.1'
-	  },
+	  meta: metainfo,
 	  data: posDetails
 	};
 	
 	app.respond(JSON.stringify(parentx), {
 	  format: 'txt'
-	, template: 'app/views/main/get'
 	});
 
     }
     
 })(app));
-  
-
 });
+
+
+
+var parseDomesticPricing = (function(weightInGram, zonId, app){
+  
+  var url = 'http://www.pos.com.my/pos_bm/appl/EmsRatedb.asp?berat='+ (weightInGram / 1000) +'&airmail='+ zonId;
+
+  request(url, ( function(app) {
+    return function(err, resp, body) {
+	if (err)
+	    throw err;
+	$ = cheerio.load(body);
+	
+	// TODO: scraping goes here!
+	
+	if(zonId == 1) { var zonDetail = 'Dalam Bandar Yang Sama' };
+	if(zonId == 2) { var zonDetail = 'Dalam Semenanjung / Sabah /Sarawak' };
+	if(zonId == 4) { var zonDetail = 'Antara Semenanjung Dengan Sarawak' };
+	if(zonId == 5) { var zonDetail = 'Antara Semenanjung Dengan Sabah' };
+	if(zonId == 3) { var zonDetail = 'Antara Sabah Dan Sarawak' };
+	
+	priceDetails = {
+	  price_without_tax: $('font[color=red]').text(),
+	  weight_in_grams: weightInGram,
+	  zon: { 
+	    id: zonId,
+	    detail: zonDetail },
+	  tax_info: {
+	    fuel_surchage: '15%',
+	    handling_charges: '10%',
+	    GST: '6%' }
+	};
+	
+	
+	var parentx = {
+	  meta: metainfo,
+	  data: priceDetails
+	};
+	
+	// Respond
+	app.respond(JSON.stringify(parentx), {
+	  format: 'txt'
+	});
+	
+    }
+
+    })(app)); 
+  
+});
+
+
+
+
+//------------------------------------------------------
+// Controllers
+//======================================================
 
 
 var Main = function () {
@@ -110,8 +154,15 @@ var Main = function () {
   };
   
   this.get = function(req, respo, params){
-    engine(params.id, this);    
+    parseTrackingID(params.id, this);    
   };
+  
+  this.priceDomestic = function(req, respo, params){
+    parseDomesticPricing(params.gram, params.id, this);
+  };
+  
+//======================================================
+  
 };
 
 exports.Main = Main;
