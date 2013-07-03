@@ -19,9 +19,9 @@ var router = new geddy.RegExpRouter();
 
 router.get("/").to("Main.index");
 
-router.get("/track/:id").to("Main.get");
+router.get("/track/:id:/:type").to("Main.get");
 
-router.get("/price/domestic/:gram/zon/:id").to("Main.priceDomestic");
+router.get("/price/domestic/:gram/zon/:id/:type").to("Main.priceDomestic");
 
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');

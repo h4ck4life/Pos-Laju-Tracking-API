@@ -8,7 +8,7 @@ var metainfo = {
     version: "0.0.1"
 };
 
-var parseTrackingID = function(idx, app) {
+var parseTrackingID = function(idx, calltype, app) {
     var url = "http://www.pos.com.my/emstrack/viewdetail.asp?parcelno=" + idx;
     request(url, function(app) {
         return function(err, resp, body) {
@@ -47,13 +47,13 @@ var parseTrackingID = function(idx, app) {
                 data: posDetails
             };
             app.respond(JSON.stringify(parentx), {
-                format: "txt"
+                if(calltype === 'json') { format: "js" } else { format: "txt" }
             });
         };
     }(app));
 };
 
-var parseDomesticPricing = function(weightInGram, zonId, app) {
+var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
     var url = "http://www.pos.com.my/pos_bm/appl/EmsRatedb.asp?berat=" + weightInGram / 1e3 + "&airmail=" + zonId;
     request(url, function(app) {
         return function(err, resp, body) {
@@ -92,7 +92,7 @@ var parseDomesticPricing = function(weightInGram, zonId, app) {
                 data: priceDetails
             };
             app.respond(JSON.stringify(parentx), {
-                format: "txt"
+                format: "js"
             });
         };
     }(app));
@@ -106,10 +106,10 @@ var Main = function() {
         });
     };
     this.get = function(req, respo, params) {
-        parseTrackingID(params.id, this);
+        parseTrackingID(params.id, params.type, this);
     };
     this.priceDomestic = function(req, respo, params) {
-        parseDomesticPricing(params.gram, params.id, this);
+        parseDomesticPricing(params.gram, params.id, params.type, this);
     };
 };
 
