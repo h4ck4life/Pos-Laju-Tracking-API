@@ -10,21 +10,36 @@
   <h3>Tracking</h3>
   <p>
     Get Tracking<br />
-    http://poslajutracking.herokuapp.com/track/<b>{parcel id}</b><br /><br />
+   <pre class="text-info">http://poslajutracking.herokuapp.com/track/<b>{parcel id}</b></pre><br />
     <i>Example:</i><br />
-    <i>http://poslajutracking.herokuapp.com/track/EM417670204MY</i><br /><br />
+    <pre class="text-info"><i>http://poslajutracking.herokuapp.com/track/EM417670204MY</i></pre><br />
   </p>
   <h3>Pricing</h3>
   <p>
     Get Pricing<br />
-    http://poslajutracking.herokuapp.com/price/domestic/<b>{weigh in grams}</b>/zon/<b>{location zon ID}</b><br /><br />
+    <pre class="text-info">http://poslajutracking.herokuapp.com/price/domestic/<b>{weigh in grams}</b>/zon/<b>{location zon ID}</b></pre><br />
     <i>Example:</i><br />
-    <i>http://poslajutracking.herokuapp.com/price/domestic/250/zon/2</i><br /><br />
+    <pre class="text-info">http://poslajutracking.herokuapp.com/price/domestic/250/zon/2</pre><br />
     <b>Zon ID reference:</b><br />
     1 = Dalam Bandar Yang Sama<br />
     2 = Dalam Semenanjung / Sabah /Sarawak<br />
     3 = Antara Sabah Dan Sarawak<br />
     4 = Antara Semenanjung Dengan Sarawak<br />
-    5 = Antara Semenanjung Dengan Sabah<br />
+    5 = Antara Semenanjung Dengan Sabah<br /><br />
   </p>
+  <h3>How To Use With jQuery AJAX</h3>
+  <pre class="text-info">
+	$.ajax({
+		url: 'http://poslajutracking.herokuapp.com/price/domestic/950/zon/2/<b>json</b>',
+		type: 'GET',
+		dataType: 'jsonp',
+		error: function(xhr, status, error) {
+		    console.log("error");
+		},
+		success: function(json) {
+		    var result = jQuery.parseJSON(json);
+		    console.log(result);
+		}
+	    }); 
+   </pre>
 </div>
