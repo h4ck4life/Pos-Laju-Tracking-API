@@ -31,6 +31,24 @@
     5 = Antara Semenanjung Dengan Sabah<br /><br />
   </p>
   <h3>How To Use With jQuery AJAX</h3>
+  
+  Get Tracking<br />
+  <pre class="text-info">
+	$.ajax({
+		url: 'http://poslajutracking.herokuapp.com/track/EM417670204MY/<b>json</b>',
+		type: 'GET',
+		dataType: 'jsonp',
+		error: function(xhr, status, error) {
+		    console.log("error");
+		},
+		success: function(json) {
+		    var result = jQuery.parseJSON(json);
+		    console.log(result);
+		}
+	    }); 
+   </pre>
+  <br />
+  Get Pricing<br />
   <pre class="text-info">
 	$.ajax({
 		url: 'http://poslajutracking.herokuapp.com/price/domestic/950/zon/2/<b>json</b>',
