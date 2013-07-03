@@ -15,11 +15,6 @@
  * limitations under the License.
  *
 */
-
-var Application = function () {
-};
+var Application = function() {};
 
 exports.Application = Application;
-
-
-

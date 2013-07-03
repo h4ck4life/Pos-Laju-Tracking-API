@@ -2,6 +2,9 @@ var request = require("request");
 
 var cheerio = require("cheerio");
 
+var nexmo = require("easynexmo/lib/nexmo");
+
+
 var metainfo = {
     author: "@h4ck4life",
     about: "Pos Laju Tracking API - Free",
@@ -47,6 +50,11 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
+	    
+	    nexmo.sendTextMessage('PosLajuTracking', '60136301910', 'EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR', function(){
+	      console.log('SMS SENT!');
+	    });
+	    
             // options of output. JSON or TXT
             if (calltype === "json") {
                 app.respond(JSON.stringify(parentx), {
@@ -114,6 +122,9 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
 };
 
 var Main = function() {
+  
+    nexmo.initialize('c3f76bb8', '571c5e4a', 'http', false);
+  
     this.index = function(req, resp, params) {
         this.respond(params, {
             format: "html",

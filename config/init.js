@@ -13,3 +13,15 @@ if (geddy.config.environment != 'development') {
   });
 }
 
+// Cron job to fetch parcel delivery status
+// var cronJob = require('cron').CronJob;
+// var job = new cronJob('1 1 * * * *', function(){
+//     geddy.log.debug("ALIF IS GREAT");
+//   }, function () {
+//     // This function is executed when the job stops
+//   }, 
+//   true /* Start the job right now */,
+//   "Asia/Kuala_Lumpur" /* Time zone of this job. */
+//  
+// );
+
