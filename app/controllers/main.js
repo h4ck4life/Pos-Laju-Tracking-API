@@ -46,9 +46,16 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
-            app.respond(JSON.stringify(parentx), {
-                if(calltype === 'json') { format: "js" } else { format: "txt" }
-            });
+	    
+	    if(calltype === 'json') {
+	      app.respond(JSON.stringify(parentx), {
+		  format: "js"
+	      });
+	    } else {
+	      app.respond(JSON.stringify(parentx), {
+		  format: "txt"
+	      });
+	    }
         };
     }(app));
 };
@@ -91,9 +98,16 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
                 meta: metainfo,
                 data: priceDetails
             };
-            app.respond(JSON.stringify(parentx), {
-               if(calltype === 'json') { format: "js" } else { format: "txt" }
-            });
+	    
+            if(calltype === 'json') {
+	      app.respond(JSON.stringify(parentx), {
+		  format: "js"
+	      });
+	    } else {
+	      app.respond(JSON.stringify(parentx), {
+		  format: "txt"
+	      });
+	    }
         };
     }(app));
 };
