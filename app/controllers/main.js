@@ -47,7 +47,7 @@ var parseTrackingID = function(idx, app) {
                 data: posDetails
             };
             app.respond(JSON.stringify(parentx), {
-                format: "txt"
+                format: "js"
             });
         };
     }(app));
@@ -92,7 +92,7 @@ var parseDomesticPricing = function(weightInGram, zonId, app) {
                 data: priceDetails
             };
             app.respond(JSON.stringify(parentx), {
-                format: "txt"
+                format: "js"
             });
         };
     }(app));
