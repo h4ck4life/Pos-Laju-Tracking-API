@@ -1,4 +1,5 @@
 var request = require("request");
+
 var cheerio = require("cheerio");
 
 var metainfo = {
@@ -46,16 +47,16 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
-	    
-	    if(calltype === 'json') {
-	      app.respond(JSON.stringify(parentx), {
-		  format: "js"
-	      });
-	    } else {
-	      app.respond(JSON.stringify(parentx), {
-		  format: "txt"
-	      });
-	    }
+            // options of output. JSON or TXT
+            if (calltype === "json") {
+                app.respond(JSON.stringify(parentx), {
+                    format: "js"
+                });
+            } else {
+                app.respond(JSON.stringify(parentx), {
+                    format: "txt"
+                });
+            }
         };
     }(app));
 };
@@ -98,16 +99,16 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
                 meta: metainfo,
                 data: priceDetails
             };
-	    
-            if(calltype === 'json') {
-	      app.respond(JSON.stringify(parentx), {
-		  format: "js"
-	      });
-	    } else {
-	      app.respond(JSON.stringify(parentx), {
-		  format: "txt"
-	      });
-	    }
+            // options of output. JSON or TXT
+            if (calltype === "json") {
+                app.respond(JSON.stringify(parentx), {
+                    format: "js"
+                });
+            } else {
+                app.respond(JSON.stringify(parentx), {
+                    format: "txt"
+                });
+            }
         };
     }(app));
 };
