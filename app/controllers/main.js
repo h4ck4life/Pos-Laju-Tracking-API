@@ -90,8 +90,20 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
             if (zonId == 3) {
                 var zonDetail = "Antara Sabah Dan Sarawak";
             }
+
+
+            priceActual = $("font[color=red]").text();
+            priceActual = parseFloat(priceActual.substring(3, priceActual.length)).toFixed(2);
+
+            priceCharge = parseFloat((0.25 * priceActual) + priceActual).toFixed(2);
+
+            priceChargePlusActual = parseFloat(parseFloat(priceCharge) + parseFloat(priceActual)).toFixed(2);
+
+            price_with_tax = parseFloat((parseFloat(0.06 * priceChargePlusActual)) + parseFloat(priceChargePlusActual)).toFixed(2);
+
             priceDetails = {
-                price_without_tax: $("font[color=red]").text(),
+                price_with_tax: price_with_tax,
+                price_without_tax: priceActual,
                 weight_in_grams: weightInGram,
                 zon: {
                     id: zonId,
