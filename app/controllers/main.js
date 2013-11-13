@@ -95,11 +95,11 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
             priceActual = $("font[color=red]").text();
             priceActual = parseFloat(priceActual.substring(3, priceActual.length)).toFixed(2);
 
-            priceCharge = parseFloat((0.25 * priceActual) + priceActual).toFixed(2);
+            priceCharge = parseFloat((parseFloat(0.25) * parseFloat(priceActual)) + parseFloat(priceActual)).toFixed(2);
 
-            priceChargePlusActual = parseFloat(parseFloat(priceCharge) + parseFloat(priceActual)).toFixed(2);
+            //priceChargePlusActual = parseFloat(parseFloat(priceCharge) + parseFloat(priceActual)).toFixed(2);
 
-            price_with_tax = parseFloat((parseFloat(0.06 * priceChargePlusActual)) + parseFloat(priceChargePlusActual)).toFixed(2);
+            price_with_tax = parseFloat((parseFloat(0.06 * priceCharge)) + parseFloat(priceCharge)).toFixed(2);
 
             priceDetails = {
                 price_with_tax: price_with_tax,
