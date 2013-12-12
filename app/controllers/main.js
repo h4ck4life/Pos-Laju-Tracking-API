@@ -10,7 +10,7 @@ var metainfo = {
     author: "@h4ck4life",
     about: "Pos Laju Tracking API - Free",
     email: "alifaziz@gmail.com",
-    version: "0.0.2"
+    version: "0.0.3"
 };
 
 var parseTrackingID = function(idx, calltype, app) {
