@@ -4,6 +4,7 @@ var cheerio = require("cheerio");
 
 var nexmo = require("easynexmo/lib/nexmo");
 
+var cache = require("memory-cache");
 
 var metainfo = {
     author: "@h4ck4life",
@@ -50,12 +51,12 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
-	    
-// 	    nexmo.sendTextMessage('PosLajuTracking', '60136301910', 'EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR', function(){
-// 	      console.log('SMS SENT!');
-// 	    });
-	    
+            //      nexmo.sendTextMessage('PosLajuTracking', '60136301910', 'EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR', function(){
+            //        console.log('SMS SENT!');
+            //      });
             // options of output. JSON or TXT
+            // cache it for 5 minutes
+            cache.put(idx, parentx, 9e5);
             if (calltype === "json") {
                 app.respond(JSON.stringify(parentx), {
                     format: "js"
@@ -90,17 +91,11 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
             if (zonId == 3) {
                 var zonDetail = "Antara Sabah Dan Sarawak";
             }
-
-
             priceActual = $("font[color=red]").text();
             priceActual = parseFloat(priceActual.substring(3, priceActual.length)).toFixed(2);
-
-            priceCharge = parseFloat((parseFloat(0.25) * parseFloat(priceActual)) + parseFloat(priceActual)).toFixed(2);
-
+            priceCharge = parseFloat(parseFloat(.25) * parseFloat(priceActual) + parseFloat(priceActual)).toFixed(2);
             //priceChargePlusActual = parseFloat(parseFloat(priceCharge) + parseFloat(priceActual)).toFixed(2);
-
-            price_with_tax = parseFloat((parseFloat(0.06 * priceCharge)) + parseFloat(priceCharge)).toFixed(2);
-
+            price_with_tax = parseFloat(parseFloat(.06 * priceCharge) + parseFloat(priceCharge)).toFixed(2);
             priceDetails = {
                 price_with_tax: price_with_tax,
                 price_without_tax: priceActual,
@@ -120,6 +115,7 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
                 data: priceDetails
             };
             // options of output. JSON or TXT
+            cache.put(weightInGram + zonId, parentx, 864e5);
             if (calltype === "json") {
                 app.respond(JSON.stringify(parentx), {
                     format: "js"
@@ -134,9 +130,7 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
 };
 
 var Main = function() {
-  
-    nexmo.initialize('c3f76bb8', '571c5e4a', 'http', false);
-  
+    nexmo.initialize("c3f76bb8", "571c5e4a", "http", false);
     this.index = function(req, resp, params) {
         this.respond(params, {
             format: "html",
@@ -144,10 +138,34 @@ var Main = function() {
         });
     };
     this.get = function(req, respo, params) {
-        parseTrackingID(params.id, params.type, this);
+        if (cache.get(params.id) == null) {
+            parseTrackingID(params.id, params.type, this);
+        } else {
+            if (params.type === "json") {
+                this.respond(JSON.stringify(cache.get(params.id)), {
+                    format: "js"
+                });
+            } else {
+                this.respond(JSON.stringify(cache.get(params.id)), {
+                    format: "txt"
+                });
+            }
+        }
     };
     this.priceDomestic = function(req, respo, params) {
-        parseDomesticPricing(params.gram, params.id, params.type, this);
+        if (cache.get(params.gram + params.id) == null) {
+            parseDomesticPricing(params.gram, params.id, params.type, this);
+        } else {
+            if (params.type === "json") {
+                this.respond(JSON.stringify(cache.get(params.gram + params.id)), {
+                    format: "js"
+                });
+            } else {
+                this.respond(JSON.stringify(cache.get(params.gram + params.id)), {
+                    format: "txt"
+                });
+            }
+        }
     };
 };
 
