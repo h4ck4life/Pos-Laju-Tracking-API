@@ -51,9 +51,9 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
-            nexmo.sendTextMessage("PosLajuTracking", "60136301910", "EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR", function() {
-                console.log("SMS SENT!");
-            });
+            //nexmo.sendTextMessage("PosLajuTracking", "60136301910", "EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR", function() {
+            //    console.log("SMS SENT!");
+            //});
             // options of output. JSON or TXT
             // cache it for 5 minutes
             cache.put(idx, parentx, 9e5);
