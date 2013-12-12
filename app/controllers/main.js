@@ -51,9 +51,9 @@ var parseTrackingID = function(idx, calltype, app) {
                 meta: metainfo,
                 data: posDetails
             };
-            //      nexmo.sendTextMessage('PosLajuTracking', '60136301910', 'EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR', function(){
-            //        console.log('SMS SENT!');
-            //      });
+            nexmo.sendTextMessage("PosLajuTracking", "60136301910", "EM417670204MY Consignment dispatch out from Transit Office PPL KUALA LUMPUR", function() {
+                console.log("SMS SENT!");
+            });
             // options of output. JSON or TXT
             // cache it for 5 minutes
             cache.put(idx, parentx, 9e5);
@@ -132,10 +132,16 @@ var parseDomesticPricing = function(weightInGram, zonId, calltype, app) {
 var Main = function() {
     nexmo.initialize("c3f76bb8", "571c5e4a", "http", false);
     this.index = function(req, resp, params) {
-        this.respond(params, {
-            format: "html",
-            template: "app/views/main/index"
-        });
+        if (cache.get("index") == null) {
+            var respondObj = {
+                format: "html",
+                template: "app/views/main/index"
+            };
+            cache.put("index", respondObj);
+            this.respond(params, respondObj);
+        } else {
+            this.respond(params, cache.get("index"));
+        }
     };
     this.get = function(req, respo, params) {
         if (cache.get(params.id) == null) {
