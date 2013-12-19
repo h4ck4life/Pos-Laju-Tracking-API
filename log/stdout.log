@@ -1,4 +1,4 @@
-[Thu, 19 Dec 2013 09:53:38 GMT] INFO Server starting with config: {
+[Thu, 19 Dec 2013 10:00:51 GMT] INFO Server starting with config: {
   "environment": "production",
   "workers": 2,
   "port": 4000,
@@ -64,8 +64,6 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Thu, 19 Dec 2013 09:53:38 GMT] INFO Creating 2 worker processes.
-[Thu, 19 Dec 2013 09:53:48 GMT] INFO Server worker running in production on port 4000 with a PID of: 16972
-[Thu, 19 Dec 2013 09:53:49 GMT] INFO Server worker running in production on port 4000 with a PID of: 16971
-[Thu, 19 Dec 2013 09:56:07 GMT] INFO Message sent: 250 OK id=1VtaKt-00081F-5J
-[Thu, 19 Dec 2013 09:56:07 GMT] INFO Message sent: 250 OK id=1VtaKt-00082A-9V
+[Thu, 19 Dec 2013 10:00:51 GMT] INFO Creating 2 worker processes.
+[Thu, 19 Dec 2013 10:01:02 GMT] INFO Server worker running in production on port 4000 with a PID of: 14065
+[Thu, 19 Dec 2013 10:01:03 GMT] INFO Server worker running in production on port 4000 with a PID of: 14063
