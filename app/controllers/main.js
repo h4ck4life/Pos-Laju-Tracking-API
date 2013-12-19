@@ -3,7 +3,6 @@ var request = require("request");
 var cheerio = require("cheerio");
 
 //var nexmo = require("easynexmo/lib/nexmo");
-
 var cache = require("memory-cache");
 
 var poslajutracking = require("../../lib/poslajutracking_lib.js");
@@ -75,6 +74,26 @@ var Main = function() {
                 });
             }
         }
+    };
+    this.notify = function(req, respo, params) {
+        var self = this;
+        var Parcelparams = {
+            posid: params.id,
+            notifyemail: params.notifyemail,
+            delivered: 0
+        };
+        var parcel = geddy.model.Parcel.create(Parcelparams);
+        if (parcel.isValid()) {
+            parcel.save(function(err, data) {
+                if (err) {
+                    throw err;
+                }
+                self.respond({saved: true}, {
+                    format: "json"
+                });
+            });
+        }
+        
     };
 };
 

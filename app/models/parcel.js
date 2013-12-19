@@ -1,4 +1,3 @@
-(function () {
 var Parcel = function () {
 
   this.defineProperties({
@@ -45,4 +44,3 @@ Parcel.someStaticProperty = 'YYZ';
 
 exports.Parcel = Parcel;
 
-}());

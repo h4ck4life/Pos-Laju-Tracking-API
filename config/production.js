@@ -25,11 +25,11 @@ var config = {
   }
 , db: {
     mongo: {
-      username: null
-    , dbname: 'production'
+      username: 'poslajutracking'
+    , dbname: 'poslajutracking'
     , prefix: null
-    , password: null
-    , host: 'localhost'
+    , password: '12345678'
+    , host: 'filavents.com'
     , port: 27017
     }
   }
