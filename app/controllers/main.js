@@ -86,14 +86,21 @@ var Main = function() {
         if (parcel.isValid()) {
             parcel.save(function(err, data) {
                 if (err) {
-                    throw err;
+                    self.respond({
+                        saved: false,
+                        debug: "Make sure 'id' and 'notifyemail' parameters are present"
+                    }, {
+                        format: "json"
+                    });
+                } else {
+                    self.respond({
+                        saved: true
+                    }, {
+                        format: "json"
+                    });
                 }
-                self.respond({saved: true}, {
-                    format: "json"
-                });
             });
         }
-        
     };
 };
 

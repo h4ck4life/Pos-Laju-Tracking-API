@@ -30,35 +30,40 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 //Cron job to fetch parcel delivery status
 var cronJob = require("cron").CronJob;
 
-var job = new cronJob("*/5 * * * *", function() {
+var job = new cronJob("*/30 * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
     geddy.model.Parcel.all({
         delivered: 0
     }, function(err, data) {
+        console.log(data);
         if (err) {
             throw err;
         }
-
-        // setup e-mail data with unicode symbols
-        var mailOptions = {
-            from: "Pos Laju Tracking Service <noreply@alif.my>",
-            // sender address
-            //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-            to: data.notifyemail,
-            subject: "Parcel status",
-            // Subject line
-            text: data.posid + " is delivered.",
-            // plaintext body
-            html: "<b>"+ data.posid + " is delivered.</b>"
-        };
-
-        // send mail with defined transport object
-        smtpTransport.sendMail(mailOptions, function(error, response) {
-            if (error) {
-                geddy.log.error("Error: " + error);
-            } else {
-                geddy.log.info("Message sent: " + response.message);
+        // this is going to costly. So... refactoring mgkin diperlukan later.
+        if (data.length > 0) {
+            for (var i = data.length - 1; i >= 0; i--) {
+                // setup e-mail data with unicode symbols
+                var mailOptions = {
+                    from: "Pos Laju Tracking Service <noreply@alif.my>",
+                    // sender address
+                    //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+                    to: data[i].notifyemail,
+                    subject: "Parcel status",
+                    // Subject line
+                    text: data[i].posid + " is delivered.",
+                    // plaintext body
+                    html: "<b>" + data[i].posid + " is delivered.</b>"
+                };
+                // send mail with defined transport object
+                smtpTransport.sendMail(mailOptions, function(error, response) {
+                    if (error) {
+                        geddy.log.error("Error: " + error);
+                    } else {
+                        geddy.log.info("Message sent: " + response.message);
+                    }
+                });
+                data[i];
             }
-        });
+        }
     });
-}, function() {}, false, "Asia/Kuala_Lumpur");
+}, function() {}, true, "Asia/Kuala_Lumpur");

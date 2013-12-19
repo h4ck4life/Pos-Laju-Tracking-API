@@ -2,9 +2,9 @@
 var Parcel = function () {
 
   this.defineProperties({
-    posid: {type: 'string'},
+    posid: {type: 'string', required: true},
     delivered: {type: 'number'},
-    notifyemail: {type: 'string'}
+    notifyemail: {type: 'string', required: true}
   });
 
   /*
