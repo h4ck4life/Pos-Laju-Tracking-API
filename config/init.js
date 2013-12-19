@@ -62,7 +62,7 @@ var job = new cronJob("* * * * *", function() {
                         // Subject line
                         text: respObj.data[data.length - 1].process,
                         // plaintext body
-                        html: "<b>" + respObj.data[data.length - 1].process + "</b>"
+                        html: "Process: " + respObj.data[data.length - 1].process + "<br />" + "Office: " + espObj.data[data.length - 1].office + "<br />" + "Date: " + espObj.data[data.length - 1].date + "<br />" + "Time: " + espObj.data[data.length - 1].time
                     };
                     // send mail with defined transport object
                     smtpTransport.sendMail(mailOptions, function(error, response) {
