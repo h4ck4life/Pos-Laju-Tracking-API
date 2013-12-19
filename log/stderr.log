@@ -1,1 +1,78 @@
-[Thu, 12 Dec 2013 20:34:14 GMT] ERROR Worker 6118 died.
+[Thu, 19 Dec 2013 07:15:02 GMT] ERROR [object Object]
+[Thu, 19 Dec 2013 07:20:01 GMT] ERROR Error plak: SenderError: Mail from command failed - 501 <anonymous@[127.0.0.1]>: domain literals not allowed
+[Thu, 19 Dec 2013 07:25:03 GMT] ERROR Error plak: SenderError: Mail from command failed - 501 <anonymous@[127.0.0.1]>: domain literals not allowed
+[Thu, 19 Dec 2013 07:30:03 GMT] ERROR Error plak: SenderError: Mail from command failed - 501 <anonymous@[127.0.0.1]>: domain literals not allowed
+[Thu, 19 Dec 2013 08:23:48 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:23:48 GMT+0800 (MYT)] "GET /track/EM273357023MY 1.1" 500 2375 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+ReferenceError: calltype is not defined
+    at get (/home/user/nodejs/poslaju_current/poslajutracking/app/controllers/main.js:154:17)
+    at callback (/usr/lib/node_modules/geddy/lib/controller/base_controller.js:282:22)
+    at controller.BaseController._handleAction (/usr/lib/node_modules/geddy/lib/controller/base_controller.js:295:7)
+    at cb [as callback] (/usr/lib/node_modules/geddy/lib/app/index.js:258:36)
+    at async.Initializer.complete (/usr/lib/node_modules/geddy/node_modules/utilities/lib/async.js:286:10)
+    at /usr/lib/node_modules/geddy/lib/app/index.js:269:21
+    at /usr/lib/node_modules/geddy/lib/controller/init.js:103:9
+    at localCallback (/usr/lib/node_modules/geddy/lib/sessions/index.js:86:9)
+    at Memory.read (/usr/lib/node_modules/geddy/lib/sessions/stores/memory.js:35:5)
+    at init (/usr/lib/node_modules/geddy/lib/sessions/index.js:89:19)
+    at null._onTimeout (/usr/lib/node_modules/geddy/lib/sessions/index.js:60:10)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)
+[Thu, 19 Dec 2013 08:24:14 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:24:14 GMT+0800 (MYT)] "GET /track/EM273357023MY 1.1" 500 2370 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+ReferenceError: app is not defined
+    at get (/home/user/nodejs/poslaju_current/poslajutracking/app/controllers/main.js:159:17)
+    at callback (/usr/lib/node_modules/geddy/lib/controller/base_controller.js:282:22)
+    at controller.BaseController._handleAction (/usr/lib/node_modules/geddy/lib/controller/base_controller.js:295:7)
+    at cb [as callback] (/usr/lib/node_modules/geddy/lib/app/index.js:258:36)
+    at async.Initializer.complete (/usr/lib/node_modules/geddy/node_modules/utilities/lib/async.js:286:10)
+    at /usr/lib/node_modules/geddy/lib/app/index.js:269:21
+    at /usr/lib/node_modules/geddy/lib/controller/init.js:103:9
+    at localCallback (/usr/lib/node_modules/geddy/lib/sessions/index.js:86:9)
+    at Memory.read (/usr/lib/node_modules/geddy/lib/sessions/stores/memory.js:35:5)
+    at init (/usr/lib/node_modules/geddy/lib/sessions/index.js:89:19)
+    at null._onTimeout (/usr/lib/node_modules/geddy/lib/sessions/index.js:60:10)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)
+[Thu, 19 Dec 2013 08:33:25 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:33:23 GMT+0800 (MYT)] "GET /track/EM273357023MY 1.1" 500 2238 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+TypeError: Object #<Object> has no method 'respond'
+    at /home/user/nodejs/poslaju_current/poslajutracking/app/controllers/main.js:157:26
+    at Request._callback (/home/user/nodejs/poslaju_current/poslajutracking/lib/poslajutracking_lib.js:66:17)
+    at Request.self.callback (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:148:22)
+    at Request.EventEmitter.emit (events.js:98:17)
+    at Request.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:876:14)
+    at Request.EventEmitter.emit (events.js:117:20)
+    at IncomingMessage.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:827:12)
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)
+    at _stream_readable.js:920:16
+    at process._tickDomainCallback (node.js:459:13)
+[Thu, 19 Dec 2013 08:40:00 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:39:58 GMT+0800 (MYT)] "GET /price/domestic/500/zon/2 1.1" 500 2127 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+ReferenceError: callbackFn is not defined
+    at Request._callback (/home/user/nodejs/poslaju_current/poslajutracking/lib/poslajutracking_lib.js:125:17)
+    at Request.self.callback (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:148:22)
+    at Request.EventEmitter.emit (events.js:98:17)
+    at Request.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:876:14)
+    at Request.EventEmitter.emit (events.js:117:20)
+    at IncomingMessage.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:827:12)
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)
+    at _stream_readable.js:920:16
+    at process._tickDomainCallback (node.js:459:13)
+[Thu, 19 Dec 2013 08:40:26 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:40:23 GMT+0800 (MYT)] "GET /price/domestic/500/zon/2 1.1" 500 2127 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+ReferenceError: callbackFn is not defined
+    at Request._callback (/home/user/nodejs/poslaju_current/poslajutracking/lib/poslajutracking_lib.js:125:17)
+    at Request.self.callback (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:148:22)
+    at Request.EventEmitter.emit (events.js:98:17)
+    at Request.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:876:14)
+    at Request.EventEmitter.emit (events.js:117:20)
+    at IncomingMessage.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:827:12)
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)
+    at _stream_readable.js:920:16
+    at process._tickDomainCallback (node.js:459:13)
+[Thu, 19 Dec 2013 08:41:14 GMT] ERROR 127.0.0.1 - - [Thu Dec 19 2013 16:41:11 GMT+0800 (MYT)] "GET /price/domestic/500/zon/2 1.1" 500 2239 "-" "Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/30.0.1599.114 Chrome/30.0.1599.114 Safari/537.36"
+TypeError: Object #<Object> has no method 'respond'
+    at /home/user/nodejs/poslaju_current/poslajutracking/app/controllers/main.js:185:26
+    at Request._callback (/home/user/nodejs/poslaju_current/poslajutracking/lib/poslajutracking_lib.js:125:17)
+    at Request.self.callback (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:148:22)
+    at Request.EventEmitter.emit (events.js:98:17)
+    at Request.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:876:14)
+    at Request.EventEmitter.emit (events.js:117:20)
+    at IncomingMessage.<anonymous> (/home/user/nodejs/poslaju_current/poslajutracking/node_modules/request/index.js:827:12)
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)
+    at _stream_readable.js:920:16
+    at process._tickDomainCallback (node.js:459:13)

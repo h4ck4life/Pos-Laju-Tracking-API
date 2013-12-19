@@ -16,34 +16,37 @@ if (geddy.config.environment != "development") {
 
 // create reusable transport method (opens pool of SMTP connections)
 var smtpTransport = nodemailer.createTransport("SMTP", {
-    service: "Gmail",
+    //service: "Gmail",
+    host: "mail.alif.my", // hostname
+    port: 587, // port for secure SMTP
     auth: {
-        user: "alifaziz@gmail.com",
-        pass: "pranee1989"
+        user: "noreply@alif.my",
+        pass: "athirah89"
     }
 });
 
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
-    to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
+    from: "Pos Laju Tracking Service <noreply@alif.my>", // sender address
+    //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+    to: "alifaziz@gmail.com",
+    subject: "Parcel status", // Subject line
+    text: "Delivered", // plaintext body
+    html: "<b>Delivered</b>" // html body
 }
 
 
 //Cron job to fetch parcel delivery status
 var cronJob = require("cron").CronJob;
 
-var job = new cronJob("00 30 08 * * 1-5", function() {
+var job = new cronJob("*/5 * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
 
     // send mail with defined transport object
     smtpTransport.sendMail(mailOptions, function(error, response) {
         if (error) {
-            geddy.log.error(error);
+            geddy.log.error("Error plak: " + error);
         } else {
             geddy.log.info("Message sent: " + response.message);
         }
