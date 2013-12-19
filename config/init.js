@@ -32,7 +32,7 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 //Cron job to fetch parcel delivery status
 var cronJob = require("cron").CronJob;
 
-var job = new cronJob("*/1 * * * *", function() {
+var job = new cronJob("* * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
     geddy.model.Parcel.all({
         delivered: 0
