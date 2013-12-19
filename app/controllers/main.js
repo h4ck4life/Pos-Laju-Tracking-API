@@ -77,11 +77,35 @@ var Main = function() {
     };
     this.notify = function(req, respo, params) {
         var self = this;
-        var Parcelparams = {
-            posid: params.id,
-            notifyemail: params.notifyemail,
-            delivered: 0
-        };
+        var Parcelparams;
+        if (params.notifyemail && params.id) {
+            geddy.model.Parcel.all({
+                posid: params.id
+            }, function(err, data) {
+                if (data.length > 0) {
+                    self.respond({
+                        saved: false,
+                        debug: "Parcel ID already exists.",
+                        parcelId: params.id
+                    }, {
+                        format: "json"
+                    });
+                } else {
+                    Parcelparams = {
+                        posid: params.id,
+                        notifyemail: params.notifyemail,
+                        delivered: 0
+                    };
+                }
+            });
+        } else {
+            self.respond({
+                saved: false,
+                debug: "Make sure 'id' and 'notifyemail' parameters are present"
+            }, {
+                format: "json"
+            });
+        }
         var parcel = geddy.model.Parcel.create(Parcelparams);
         if (parcel.isValid()) {
             parcel.save(function(err, data) {
@@ -92,13 +116,13 @@ var Main = function() {
                     }, {
                         format: "json"
                     });
-                } else {
-                    self.respond({
-                        saved: true
-                    }, {
-                        format: "json"
-                    });
+                    throw err;
                 }
+                self.respond({
+                    saved: true
+                }, {
+                    format: "json"
+                });
             });
         }
     };
