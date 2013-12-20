@@ -75,7 +75,6 @@ var job = new cronJob("0 * * * *", function() {
                                 to: parceldata[f].notifyemail,
                                 subject: "Parcel Delivery Status",
                                 // Subject line
-                                text: respObj.data[data.length - 1].process,
                                 // plaintext body
                                 html: "Process: " + respObj.data[data.length - 1].process + "<br />" + "Office: " + respObj.data[data.length - 1].office + "<br />" + "Date: " + respObj.data[data.length - 1].date + "<br />" + "Time: " + respObj.data[data.length - 1].time
                             };

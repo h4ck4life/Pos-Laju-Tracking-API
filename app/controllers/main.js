@@ -79,6 +79,7 @@ var Main = function() {
         var self = this;
         var Parcelparams;
         var origin = req.headers.host;
+        // poslajutracking.herokuapp.com
         if (origin !== "poslajutracking.herokuapp.com") {
             self.respond({
                 saved: false,
