@@ -1,0 +1,46 @@
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-mid-4">
+            <form action="#" method="post" class="form">
+            <div class="get-in-touch">
+                <h3 class="text-center">
+                    Pos Laju Parcel Status Notifier</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="posid" placeholder="Parcel Tracking Number" required/>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="notifyemail" placeholder="Email" required/>
+                </div>
+               
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Message" required></textarea>
+                </div>
+                
+                <a href="" class="btn btn-danger btn-sm btn-block" role="button">Send it!</a>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="container" style="margin-top: 7%;">
+    <center><p>Send parcel delivery status to any email for free.</p></center>
+    <div class="row login-box">
+        <div class="span4 offset4 well">
+            <legend>Pos Laju Parcel Status Notifier</legend>
+            <div class="hide alert alert-error"> <a class="close" data-dismiss="alert" href="#">×</a>Error</div>
+            <form method="POST" action="" accept-charset="UTF-8">
+                <input type="text" id="posid" class="span4" name="id" placeholder="Tracking number (ex: EM273357023MY)" required>
+                <input type="email" id="notifyemail" class="span4" name="notifyemail" placeholder="Email address" required>
+                <br />
+                <br />
+                <button type="submit" name="submit" class="btn btn-info btn-block">Submit !</button>
+            </form>
+        </div>
+    </div>
+</div>
+<center>
+<div class="fb-like" data-href="http://poslajutracking.herokuapp.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+</center>
