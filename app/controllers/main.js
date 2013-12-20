@@ -86,6 +86,7 @@ var Main = function() {
             }, {
                 format: "json"
             });
+            return false;
         }
         if (params.notifyemail && params.id) {
             geddy.model.Parcel.all({
@@ -99,6 +100,7 @@ var Main = function() {
                     }, {
                         format: "json"
                     });
+                    return false;
                 } else {
                     Parcelparams = {
                         posid: params.id,
@@ -122,6 +124,7 @@ var Main = function() {
                             }, {
                                 format: "json"
                             });
+                            return false;
                         });
                     }
                 }
