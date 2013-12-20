@@ -1,10 +1,10 @@
-[Fri, 20 Dec 2013 13:12:18 GMT] INFO Server starting with config: {
-  "environment": "development",
-  "workers": 1,
+[Fri, 20 Dec 2013 13:43:03 GMT] INFO Server starting with config: {
+  "environment": "production",
+  "workers": 2,
   "port": 4000,
   "spdy": null,
   "ssl": null,
-  "detailedErrors": true,
+  "detailedErrors": false,
   "flash": {
     "defaultClass": "alert",
     "inlineClasses": {
@@ -20,8 +20,8 @@
       "info": "alert alert-block alert-info"
     }
   },
-  "debug": true,
-  "rotateWorkers": false,
+  "debug": false,
+  "rotateWorkers": true,
   "rotationWindow": 7200000,
   "rotationTimeout": 300000,
   "logDir": "/home/user/nodejs/poslaju_current/poslajutracking/log",
@@ -35,7 +35,7 @@
     }
   },
   "sessions": {
-    "store": "memory",
+    "store": "cookie",
     "key": "sid",
     "expiry": 1209600
   },
@@ -50,10 +50,20 @@
   "fullHostname": null,
   "connectCompatibility": false,
   "model": {
-    "defaultAdapter": "memory"
+    "defaultAdapter": "mongo"
+  },
+  "db": {
+    "mongo": {
+      "username": "poslajutracking",
+      "dbname": "poslajutracking",
+      "prefix": null,
+      "password": "12345678",
+      "host": "filavents.com",
+      "port": 27017
+    }
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Fri, 20 Dec 2013 13:12:18 GMT] INFO Creating 1 worker process.
-[Fri, 20 Dec 2013 13:12:18 GMT] INFO Server worker running in development on port 4000 with a PID of: 23499
-[Fri, 20 Dec 2013 13:14:02 GMT] INFO Message sent: 250 OK id=1Vtztx-0006ih-R5
+[Fri, 20 Dec 2013 13:43:03 GMT] INFO Creating 2 worker processes.
+[Fri, 20 Dec 2013 13:43:16 GMT] INFO Server worker running in production on port 4000 with a PID of: 18629
+[Fri, 20 Dec 2013 13:43:16 GMT] INFO Server worker running in production on port 4000 with a PID of: 18631
