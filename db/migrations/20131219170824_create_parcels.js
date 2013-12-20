@@ -2,6 +2,7 @@ var CreateParcels = function () {
   this.up = function (next) {
     var def = function (t) {
           t.column('posid', 'string');
+          t.column('status', 'string');
           t.column('delivered', 'number');
           t.column('notifyemail', 'string');
         }
