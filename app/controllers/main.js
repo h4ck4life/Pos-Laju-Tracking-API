@@ -105,6 +105,25 @@ var Main = function() {
                         notifyemail: params.notifyemail,
                         delivered: 0
                     };
+                    var parcel = geddy.model.Parcel.create(Parcelparams);
+                    if (parcel.isValid()) {
+                        parcel.save(function(err, data) {
+                            if (err) {
+                                self.respond({
+                                    saved: false,
+                                    debug: "Make sure 'id' and 'notifyemail' parameters are present"
+                                }, {
+                                    format: "json"
+                                });
+                                throw err;
+                            }
+                            self.respond({
+                                saved: true
+                            }, {
+                                format: "json"
+                            });
+                        });
+                    }
                 }
             });
         } else {
@@ -113,25 +132,6 @@ var Main = function() {
                 debug: "Make sure 'id' and 'notifyemail' parameters are present"
             }, {
                 format: "json"
-            });
-        }
-        var parcel = geddy.model.Parcel.create(Parcelparams);
-        if (parcel.isValid()) {
-            parcel.save(function(err, data) {
-                if (err) {
-                    self.respond({
-                        saved: false,
-                        debug: "Make sure 'id' and 'notifyemail' parameters are present"
-                    }, {
-                        format: "json"
-                    });
-                    throw err;
-                }
-                self.respond({
-                    saved: true
-                }, {
-                    format: "json"
-                });
             });
         }
     };
