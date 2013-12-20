@@ -3,6 +3,7 @@ var Parcel = function () {
 
   this.defineProperties({
     posid: {type: 'string', required: true},
+    status: {type: 'string'},
     delivered: {type: 'number'},
     notifyemail: {type: 'string', required: true}
   });
