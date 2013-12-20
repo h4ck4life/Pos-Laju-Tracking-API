@@ -48,7 +48,6 @@ var job = new cronJob("0 * * * *", function() {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
 
-
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
 
@@ -74,7 +73,7 @@ var job = new cronJob("0 * * * *", function() {
                                 // sender address
                                 //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
                                 to: parceldata[f].notifyemail,
-                                subject: "Parcel Status",
+                                subject: "Parcel Delivery Status",
                                 // Subject line
                                 text: respObj.data[data.length - 1].process,
                                 // plaintext body
