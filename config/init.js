@@ -47,42 +47,48 @@ var job = new cronJob("*/1 * * * *", function() {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
 
-                    if (parceldata[f].status !== respObj.data[data.length - 1].process) {
 
-                        // if the parcel successfullt delivered, set the delivered flag to 1.
-                        if (respObj.data[data.length - 1].process.search("successfully delivered") != -1) {
+                    // if the parcel has any data..
+                    if (respObj.data.length > 0) {
+
+                        if (parceldata[f].status !== respObj.data[data.length - 1].process) {
+
+                            // if the parcel successfullt delivered, set the delivered flag to 1.
+                            if (respObj.data[data.length - 1].process.search("successfully delivered") != -1) {
+                                parceldata[f].updateProperties({
+                                    delivered: 1
+                                });
+                                parceldata[f].save();
+                            }
+
+                            // save the current status
                             parceldata[f].updateProperties({
-                                delivered: 1
+                                status: respObj.data[data.length - 1].process
                             });
                             parceldata[f].save();
+
+                            // setup e-mail data with unicode symbols
+                            var mailOptions = {
+                                from: "Pos Laju Tracking Service <noreply@alif.my>",
+                                // sender address
+                                //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+                                to: parceldata[f].notifyemail,
+                                subject: "Parcel Status",
+                                // Subject line
+                                text: respObj.data[data.length - 1].process,
+                                // plaintext body
+                                html: "Process: " + respObj.data[data.length - 1].process + "<br />" + "Office: " + respObj.data[data.length - 1].office + "<br />" + "Date: " + respObj.data[data.length - 1].date + "<br />" + "Time: " + respObj.data[data.length - 1].time
+                            };
+                            // send mail with defined transport object
+                            smtpTransport.sendMail(mailOptions, function(error, response) {
+                                if (error) {
+                                    geddy.log.error("Error: " + error);
+                                } else {
+                                    geddy.log.info("Message sent: " + response.message);
+                                }
+                            });
+
                         }
-
-                        // save the current status
-                        parceldata[f].updateProperties({
-                            status: respObj.data[data.length - 1].process
-                        });
-                        parceldata[f].save();
-
-                        // setup e-mail data with unicode symbols
-                        var mailOptions = {
-                            from: "Pos Laju Tracking Service <noreply@alif.my>",
-                            // sender address
-                            //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-                            to: parceldata[f].notifyemail,
-                            subject: "Parcel Status",
-                            // Subject line
-                            text: respObj.data[data.length - 1].process,
-                            // plaintext body
-                            html: "Process: " + respObj.data[data.length - 1].process + "<br />" + "Office: " + respObj.data[data.length - 1].office + "<br />" + "Date: " + respObj.data[data.length - 1].date + "<br />" + "Time: " + respObj.data[data.length - 1].time
-                        };
-                        // send mail with defined transport object
-                        smtpTransport.sendMail(mailOptions, function(error, response) {
-                            if (error) {
-                                geddy.log.error("Error: " + error);
-                            } else {
-                                geddy.log.info("Message sent: " + response.message);
-                            }
-                        });
 
                     }
                 });
