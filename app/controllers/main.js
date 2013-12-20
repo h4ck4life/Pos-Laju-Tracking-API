@@ -79,7 +79,7 @@ var Main = function() {
         var self = this;
         var Parcelparams;
         var origin = req.headers.host;
-        if (origin !== "poslajutracking.herokuapp.com") {
+        if (origin !== "poslajutracking.filavents.com") {
             self.respond({
                 saved: false,
                 debug: "You're not allowed to post. Sorry."
