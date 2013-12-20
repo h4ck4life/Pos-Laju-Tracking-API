@@ -80,6 +80,7 @@ var Main = function() {
         var Parcelparams;
         var origin = req.headers.host;
         // poslajutracking.herokuapp.com
+        // localhost:4000
         if (origin !== "poslajutracking.herokuapp.com") {
             self.respond({
                 saved: false,
