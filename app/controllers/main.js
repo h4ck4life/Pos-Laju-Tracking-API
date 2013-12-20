@@ -75,9 +75,18 @@ var Main = function() {
             }
         }
     };
-    this.notify = function(req, respo, params) {
+    this.monitor = function(req, respo, params) {
         var self = this;
         var Parcelparams;
+        var origin = req.headers.host;
+        if (origin !== "poslajutracking.herokuapp.com") {
+            self.respond({
+                saved: false,
+                debug: "You're not allowed to post. Sorry."
+            }, {
+                format: "json"
+            });
+        }
         if (params.notifyemail && params.id) {
             geddy.model.Parcel.all({
                 posid: params.id
@@ -124,6 +133,18 @@ var Main = function() {
                     format: "json"
                 });
             });
+        }
+    };
+    this.notify = function(req, respo, params) {
+        if (cache.get("notify") == null) {
+            var respondObj = {
+                format: "html",
+                template: "app/views/main/notify"
+            };
+            cache.put("notify", respondObj);
+            this.respond(params, respondObj);
+        } else {
+            this.respond(params, cache.get("notify"));
         }
     };
 };

@@ -27,8 +27,17 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=190800444378257";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -40,6 +49,7 @@
             <ul class="nav">
               <!-- <li class="active"><%- linkTo('Home', mainsPath) %></li> -->
               <li><%- linkTo('@h4ck4life', 'http://twitter.com/h4ck4life') %></li>
+              <li><%- linkTo('Parcel Delivery Notifier', '/notify') %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
