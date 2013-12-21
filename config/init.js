@@ -51,10 +51,10 @@ var job = new cronJob("*/30 * * * *", function() {
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
 
-                        if (parceldata[f].status !== respObj.data[respObj.data.length - 1].process) {
+                        if (parceldata[f].status !== respObj.data[0].process) {
 
                             // if the parcel successfullt delivered, set the delivered flag to 1.
-                            if (respObj.data[respObj.data.length - 1].process.search("successfully delivered") != -1) {
+                            if (respObj.data[0].process.search("successfully delivered") != -1) {
                                 parceldata[f].updateProperties({
                                     delivered: 1
                                 });
@@ -63,7 +63,7 @@ var job = new cronJob("*/30 * * * *", function() {
 
                             // save the current status
                             parceldata[f].updateProperties({
-                                status: respObj.data[respObj.data.length - 1].process
+                                status: respObj.data[0].process
                             });
                             parceldata[f].save();
 
@@ -76,7 +76,7 @@ var job = new cronJob("*/30 * * * *", function() {
                                 subject: "Parcel Delivery Status",
                                 // Subject line
                                 // plaintext body
-                                html: "Process: " + respObj.data[respObj.data.length - 1].process + "<br />" + "Office: " + respObj.data[respObj.data.length - 1].office + "<br />" + "Date: " + respObj.data[respObj.data.length - 1].date + "<br />" + "Time: " + respObj.data[respObj.data.length - 1].time
+                                html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date + "<br />" + "Time: " + respObj.data[0].time
                             };
                             // send mail with defined transport object
                             smtpTransport.sendMail(mailOptions, function(error, response) {
