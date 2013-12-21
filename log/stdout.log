@@ -1,4 +1,4 @@
-[Sat, 21 Dec 2013 04:48:31 GMT] INFO Server starting with config: {
+[Sat, 21 Dec 2013 18:13:18 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": "1",
   "port": 4000,
@@ -54,5 +54,5 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Sat, 21 Dec 2013 04:48:31 GMT] INFO Creating 1 worker process.
-[Sat, 21 Dec 2013 04:48:32 GMT] INFO Server worker running in development on port 4000 with a PID of: 4959
+[Sat, 21 Dec 2013 18:13:18 GMT] INFO Creating 1 worker process.
+[Sat, 21 Dec 2013 18:13:18 GMT] INFO Server worker running in development on port 4000 with a PID of: 20425

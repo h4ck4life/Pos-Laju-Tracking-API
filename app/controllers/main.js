@@ -81,7 +81,7 @@ var Main = function() {
         var origin = req.headers.host;
         // poslajutracking.herokuapp.com
         // localhost:4000
-        if (origin !== "poslajutracking.herokuapp.com") {
+        if (origin !== "localhost:4000") {
             self.respond({
                 saved: false,
                 debug: "You're not allowed to post. Sorry."
