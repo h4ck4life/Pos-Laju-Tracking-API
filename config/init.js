@@ -44,7 +44,7 @@ var job = new cronJob("*/5 * * * *", function() {
         }
         // this is going to be costly. So... refactoring mgkin diperlukan later.
         if (parceldata.length > 0) {
-            for (var i = parceldata.length - 1; i >= 0; i--) {
+            for (var i = 0; i < parceldata.length; i++) {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
                     // if the parcel has any data..
