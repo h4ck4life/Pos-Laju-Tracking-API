@@ -72,7 +72,6 @@ var job = new cronJob("*/5 * * * *", function() {
                                         parceldata[f].updateProperties({
                                             delivered: 1
                                         });
-                                        parceldata[f].save();
                                     }
                                     // save the current status
                                     parceldata[f].updateProperties({
