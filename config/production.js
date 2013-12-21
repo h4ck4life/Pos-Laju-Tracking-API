@@ -21,10 +21,11 @@ var config = {
 , hostname: null
 , port: 4000
 , workers: 1
+/*
 , model: {
     defaultAdapter: 'mongo'
   }
-  /*
+  
 , db: {
     mongo: {
       username: 'poslajutracking'
