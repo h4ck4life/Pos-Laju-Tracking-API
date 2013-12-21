@@ -24,6 +24,7 @@ var config = {
 , model: {
     defaultAdapter: 'mongo'
   }
+  /*
 , db: {
     mongo: {
       username: 'poslajutracking'
@@ -33,22 +34,22 @@ var config = {
     , host: 'filavents.com'
     , port: 27017
     }
-  }
+  }*/
 
-/* // Using Postgres as the default, with only a Postgres DB
+ // Using Postgres as the default, with only a Postgres DB
 , model: {
     defaultAdapter: 'postgres'
   }
 , db: {
     postgres: {
-      user: process.env.USER
-    , database: process.env.USER
-    , password: null
-    , host: null
+      user: 'alifaziz'
+    , database: 'poslajutracking'
+    , password: 'athirah89'
+    , host: 'filavents.com'
     , port: 5432
     }
   }
-*/
+
 
 /* // Using Postgres as the default, with both Postgres and Riak
 , model: {

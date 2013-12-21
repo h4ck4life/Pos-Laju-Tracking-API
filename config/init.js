@@ -33,7 +33,7 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 var cronJob = require("cron").CronJob;
 
 // 0 7-18 * * *
-var job = new cronJob("*/5 * * * *", function() {
+var job = new cronJob("*/1 * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
     geddy.model.Parcel.all({
         delivered: 0
@@ -48,8 +48,7 @@ var job = new cronJob("*/5 * * * *", function() {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
 
-                    console.log(parceldata[f]);
-                    return false;
+                    console.log(respObj);
 
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
@@ -90,6 +89,8 @@ var job = new cronJob("*/5 * * * *", function() {
                             
 
                         }
+
+                        console.log(parceldata[f]);
                     }
                 });
             }
