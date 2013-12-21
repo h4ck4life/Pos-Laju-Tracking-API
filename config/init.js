@@ -47,6 +47,10 @@ var job = new cronJob("*/5 * * * *", function() {
             for (var i = 0; i < parceldata.length; i++) {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
+
+                    console.log(parceldata[f]);
+                    return false;
+
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
                         if (parceldata[f].status !== respObj.data[0].process) {
@@ -83,7 +87,7 @@ var job = new cronJob("*/5 * * * *", function() {
                                 });
 
                             });
-                            console.log(parceldata[f]);
+                            
 
                         }
                     }
