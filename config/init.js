@@ -47,26 +47,9 @@ var job = new cronJob("*/30 * * * *", function() {
             for (var i = parceldata.length - 1; i >= 0; i--) {
                 var f = i;
                 poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
-
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
-
                         if (parceldata[f].status !== respObj.data[0].process) {
-
-                            // if the parcel successfullt delivered, set the delivered flag to 1.
-                            if (respObj.data[0].process.search("successfully delivered") != -1) {
-                                parceldata[f].updateProperties({
-                                    delivered: 1
-                                });
-                                parceldata[f].save();
-                            }
-
-                            // save the current status
-                            parceldata[f].updateProperties({
-                                status: respObj.data[0].process
-                            });
-                            parceldata[f].save();
-
                             // setup e-mail data with unicode symbols
                             var mailOptions = {
                                 from: "Pos Laju Tracking Service <noreply@alif.my>",
@@ -84,11 +67,21 @@ var job = new cronJob("*/30 * * * *", function() {
                                     geddy.log.error("Error: " + error);
                                 } else {
                                     geddy.log.info("Message sent: " + response.message);
+                                    // if the parcel successfullt delivered, set the delivered flag to 1.
+                                    if (respObj.data[0].process.search("successfully delivered") != -1) {
+                                        parceldata[f].updateProperties({
+                                            delivered: 1
+                                        });
+                                        parceldata[f].save();
+                                    }
+                                    // save the current status
+                                    parceldata[f].updateProperties({
+                                        status: respObj.data[0].process
+                                    });
+                                    parceldata[f].save();
                                 }
                             });
-
                         }
-
                     }
                 });
             }
