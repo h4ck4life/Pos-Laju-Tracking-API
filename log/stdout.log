@@ -154,3 +154,10 @@
 [Sat, 21 Dec 2013 22:52:11 GMT] INFO Code changed, killing 12231, cycling ...
 [Sat, 21 Dec 2013 22:52:11 GMT] INFO Creating 1 worker process.
 [Sat, 21 Dec 2013 22:52:11 GMT] INFO Server worker running in development on port 4000 with a PID of: 12232
+[Sat, 21 Dec 2013 23:14:55 GMT] INFO Code changed, killing 12232, cycling ...
+[Sat, 21 Dec 2013 23:14:55 GMT] INFO Creating 1 worker process.
+[Sat, 21 Dec 2013 23:14:56 GMT] INFO Server worker running in development on port 4000 with a PID of: 5238
+[Sat, 21 Dec 2013 23:15:10 GMT] INFO Creating 1 worker process.
+[Sat, 21 Dec 2013 23:15:10 GMT] INFO Code changed, killing 5262, cycling ...
+[Sat, 21 Dec 2013 23:15:10 GMT] INFO Creating 1 worker process.
+[Sat, 21 Dec 2013 23:15:11 GMT] INFO Server worker running in development on port 4000 with a PID of: 5263
