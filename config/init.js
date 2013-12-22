@@ -33,7 +33,7 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 var cronJob = require("cron").CronJob;
 
 // 0 7-18 * * *
-var job = new cronJob("*/1 * * * *", function() {
+var job = new cronJob("*/59 * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
     geddy.model.Parcel.all({
         delivered: 0
@@ -44,55 +44,55 @@ var job = new cronJob("*/1 * * * *", function() {
         }
         // this is going to be costly. So... refactoring mgkin diperlukan later.
         if (parceldata.length > 0) {
+            var f;
+            var saveArr = [];
             for (var i = 0; i < parceldata.length; i++) {
-                var f = i;
-                poslajutracking.parseTrackingID(parceldata[f].posid, null, null, function(respObj) {
-
-                    console.log(respObj);
-
+                f = i;
+                var parcelObj = parceldata[f];
+                poslajutracking.parseTrackingID(parcelObj.posid, null, null, function(respObj) {
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
-                        if (parceldata[f].status !== respObj.data[0].process) {
+                        if (parcelObj.status !== respObj.data[0].process) {
                             // if the parcel successfullt delivered, set the delivered flag to 1.
                             if (respObj.data[0].process.search("successfully delivered") != -1) {
-                                parceldata[f].updateProperties({
+                                parcelObj.updateProperties({
                                     delivered: 1
                                 });
                             }
                             // save the current status
-                            parceldata[f].updateProperties({
+                            parcelObj.updateProperties({
                                 status: respObj.data[0].process
                             });
-                            parceldata[f].save(function(err, data) {
-
-                                // setup e-mail data with unicode symbols
-                                var mailOptions = {
-                                    from: "Pos Laju Tracking Service <noreply@alif.my>",
-                                    // sender address
-                                    //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-                                    to: parceldata[f].notifyemail,
-                                    subject: "Parcel Delivery Status",
-                                    // Subject line
-                                    // plaintext body
-                                    html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date + "<br />" + "Time: " + respObj.data[0].time
-                                };
-                                // send mail with defined transport object
-                                smtpTransport.sendMail(mailOptions, function(error, response) {
-                                    if (error) {
-                                        geddy.log.error("Error: " + error);
-                                    } else {
-                                        geddy.log.info("Message sent: " + response.message);
-                                    }
-                                });
-
+                            saveArr.push(parcelObj);
+                            // setup e-mail data with unicode symbols
+                            var mailOptions = {
+                                from: "Pos Laju Tracking Service <noreply@alif.my>",
+                                // sender address
+                                //to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+                                to: parcelObj.notifyemail,
+                                subject: "Parcel Delivery Status",
+                                // Subject line
+                                // plaintext body
+                                html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date + "<br />" + "Time: " + respObj.data[0].time
+                            };
+                            // send mail with defined transport object
+                            smtpTransport.sendMail(mailOptions, function(error, response) {
+                                if (error) {
+                                    geddy.log.error("Error: " + error);
+                                } else {
+                                    geddy.log.info("Message sent: " + response.message);
+                                }
                             });
-                            
-
                         }
-
-                        console.log(parceldata[f]);
                     }
                 });
+            }
+            if (saveArr.length > 0) {
+                for (var i = 0; i < saveArr.length; i++) {
+                    saveArr[i].save(function(err, data) {
+                        console.log('mangkuk saved');
+                    });
+                }
             }
         }
     });

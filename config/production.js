@@ -21,7 +21,7 @@ var config = {
 , hostname: null
 , port: 4000
 , workers: 1
-/*
+
 , model: {
     defaultAdapter: 'mongo'
   }
@@ -35,8 +35,8 @@ var config = {
     , host: 'filavents.com'
     , port: 27017
     }
-  }*/
-
+  }
+/*
  // Using Postgres as the default, with only a Postgres DB
 , model: {
     defaultAdapter: 'postgres'
@@ -50,7 +50,7 @@ var config = {
     , port: 5432
     }
   }
-
+*/
 
 /* // Using Postgres as the default, with both Postgres and Riak
 , model: {
