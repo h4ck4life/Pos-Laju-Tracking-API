@@ -1,4 +1,5 @@
 var nodemailer = require("nodemailer");
+var async = require("async");
 
 var poslajutracking = require("../lib/poslajutracking_lib.js");
 
@@ -33,7 +34,7 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 var cronJob = require("cron").CronJob;
 
 // 0 7-18 * * *
-var job = new cronJob("*/59 * * * *", function() {
+var job = new cronJob("*/30 * * * *", function() {
     //geddy.log.debug("ALIF IS GREAT");
     geddy.model.Parcel.all({
         delivered: 0
@@ -44,11 +45,9 @@ var job = new cronJob("*/59 * * * *", function() {
         }
         // this is going to be costly. So... refactoring mgkin diperlukan later.
         if (parceldata.length > 0) {
-            var f;
-            var saveArr = [];
-            for (var i = 0; i < parceldata.length; i++) {
-                f = i;
-                var parcelObj = parceldata[f];
+            
+            async.map(parceldata, function(parcelObj, callback) {
+
                 poslajutracking.parseTrackingID(parcelObj.posid, null, null, function(respObj) {
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
@@ -63,7 +62,10 @@ var job = new cronJob("*/59 * * * *", function() {
                             parcelObj.updateProperties({
                                 status: respObj.data[0].process
                             });
-                            saveArr.push(parcelObj);
+                            
+                            //console.log(parcelObj.posid);
+                            parcelObj.save();
+
                             // setup e-mail data with unicode symbols
                             var mailOptions = {
                                 from: "Pos Laju Tracking Service <noreply@alif.my>",
@@ -80,20 +82,21 @@ var job = new cronJob("*/59 * * * *", function() {
                                 if (error) {
                                     geddy.log.error("Error: " + error);
                                 } else {
-                                    geddy.log.info("Message sent: " + response.message);
+                                    //geddy.log.info("Message sent: " + response.message);
                                 }
                             });
                         }
                     }
                 });
-            }
-            if (saveArr.length > 0) {
-                for (var i = 0; i < saveArr.length; i++) {
-                    saveArr[i].save(function(err, data) {
-                        console.log('mangkuk saved');
-                    });
+
+
+            }, function(err, stats) {
+                if (err) {} else {
+                    
                 }
-            }
+            });
+  
+            
         }
     });
 }, function() {}, true, "Asia/Kuala_Lumpur");

@@ -8,7 +8,8 @@
     "memory-cache": "0.0.5",
     "nodemailer": "~0.5.14",
     "cron": "~1.0.1",
-    "pg": "2.5.x"
+    "pg": "2.5.x",
+    "async": "~0.2.9"
   },
   "devDependencies": {},
   "engines": {

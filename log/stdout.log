@@ -1,4 +1,4 @@
-[Sun, 22 Dec 2013 10:10:02 GMT] INFO Server starting with config: {
+[Sun, 22 Dec 2013 12:41:29 GMT] INFO Server starting with config: {
   "environment": "production",
   "workers": 1,
   "port": 4000,
@@ -64,13 +64,7 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Sun, 22 Dec 2013 10:10:02 GMT] INFO Creating 1 worker process.
-[Sun, 22 Dec 2013 10:10:06 GMT] INFO Server worker running in production on port 4000 with a PID of: 14121
-[Sun, 22 Dec 2013 10:11:04 GMT] INFO Message sent: 250 OK id=1VvRbC-00011B-Tf
-[Sun, 22 Dec 2013 10:11:04 GMT] INFO Message sent: 250 OK id=1VvRbD-00011M-GD
-[Sun, 22 Dec 2013 10:12:03 GMT] INFO Message sent: 250 OK id=1VvRc9-00011M-UE
-[Sun, 22 Dec 2013 10:12:03 GMT] INFO Message sent: 250 OK id=1VvRcA-00011B-1o
-[Sun, 22 Dec 2013 10:13:02 GMT] INFO Message sent: 250 OK id=1VvRd7-00011B-0n
-[Sun, 22 Dec 2013 10:13:02 GMT] INFO Message sent: 250 OK id=1VvRd7-00011M-1p
-[Sun, 22 Dec 2013 10:14:02 GMT] INFO Message sent: 250 OK id=1VvRe5-00011B-L1
-[Sun, 22 Dec 2013 10:14:02 GMT] INFO Message sent: 250 OK id=1VvRe5-00011M-IZ
+[Sun, 22 Dec 2013 12:41:29 GMT] INFO Creating 1 worker process.
+[Sun, 22 Dec 2013 12:41:33 GMT] INFO Server worker running in production on port 4000 with a PID of: 7094
+[Sun, 22 Dec 2013 12:42:03 GMT] INFO Message sent: 250 OK id=1VvTxJ-0000AG-UP
+[Sun, 22 Dec 2013 12:42:03 GMT] INFO Message sent: 250 OK id=1VvTxK-0000AJ-25
