@@ -16,9 +16,9 @@ var Main = function() {
                 template: "app/views/main/index"
             };
             cache.put("index", respondObj);
-            this.respond(params, respondObj);
+            this.respond({title: 'Pos Laju Tracking API | @h4ck4life'}, respondObj);
         } else {
-            this.respond(params, cache.get("index"));
+            this.respond({title: 'Pos Laju Tracking API | @h4ck4life'}, cache.get("index"));
         }
     };
     this.get = function(req, respo, params) {
