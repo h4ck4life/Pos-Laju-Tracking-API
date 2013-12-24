@@ -141,15 +141,16 @@ var Main = function() {
         }
     };
     this.notify = function(req, respo, params) {
+        var paramsRender = {title: 'Pos Laju Parcel Status Notifier'};
         if (cache.get("notify") == null) {
             var respondObj = {
                 format: "html",
                 template: "app/views/main/notify"
             };
             cache.put("notify", respondObj);
-            this.respond(params, respondObj);
+            this.respond(paramsRender, respondObj);
         } else {
-            this.respond(params, cache.get("notify"));
+            this.respond(paramsRender, cache.get("notify"));
         }
     };
 };

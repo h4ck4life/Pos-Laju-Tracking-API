@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Pos Laju Tracking API | @h4ck4life</title>
+    <title>
+      <% if(title) { %>
+          <%= title %>
+      <% } else { %>
+          Pos Laju Tracking API | @h4ck4life
+      <% } %>
+    </title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width" />

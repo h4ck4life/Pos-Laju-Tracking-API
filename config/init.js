@@ -1,4 +1,5 @@
 var nodemailer = require("nodemailer");
+
 var async = require("async");
 
 var poslajutracking = require("../lib/poslajutracking_lib.js");
@@ -45,9 +46,7 @@ var job = new cronJob("*/30 * * * *", function() {
         }
         // this is going to be costly. So... refactoring mgkin diperlukan later.
         if (parceldata.length > 0) {
-            
             async.map(parceldata, function(parcelObj, callback) {
-
                 poslajutracking.parseTrackingID(parcelObj.posid, null, null, function(respObj) {
                     // if the parcel has any data..
                     if (respObj.data.length > 0) {
@@ -62,10 +61,8 @@ var job = new cronJob("*/30 * * * *", function() {
                             parcelObj.updateProperties({
                                 status: respObj.data[0].process
                             });
-                            
                             //console.log(parcelObj.posid);
                             parcelObj.save();
-
                             // setup e-mail data with unicode symbols
                             var mailOptions = {
                                 from: "Pos Laju Tracking Service <noreply@alif.my>",
@@ -81,22 +78,14 @@ var job = new cronJob("*/30 * * * *", function() {
                             smtpTransport.sendMail(mailOptions, function(error, response) {
                                 if (error) {
                                     geddy.log.error("Error: " + error);
-                                } else {
-                                    //geddy.log.info("Message sent: " + response.message);
-                                }
+                                } else {}
                             });
                         }
                     }
                 });
-
-
             }, function(err, stats) {
-                if (err) {} else {
-                    
-                }
+                if (err) {} else {}
             });
-  
-            
         }
     });
 }, function() {}, true, "Asia/Kuala_Lumpur");

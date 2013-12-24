@@ -24,26 +24,26 @@
     </div>
 </div>
 -->
-
 <div class="container" style="margin-top: 7%;">
-    <center><p>Send parcel delivery status to any email for free.</p></center>
-    <div class="row login-box">
-        <div class="span4 offset4 well">
-            <legend>Pos Laju Parcel Status Notifier</legend>
-            <div class="hide alert alert-error" id="error"> <a class="close" href="#">×</a><div id="error-msg"></div></div>
-            <div class="hide alert alert-info" id="info"> <a class="close" href="#">×</a><div id="info-msg"></div></div>
-            <form method="POST" id="monitor" action="/monitor" accept-charset="UTF-8">
-                <input type="text" id="posid" class="span4" name="id" placeholder="Tracking number (ex: EM273357023MY)" required>
-                <input type="email" id="notifyemail" class="span4" name="notifyemail" placeholder="Email address" required>
-                <br />
-                <br />
-                <button type="submit" name="submit" class="btn btn-info btn-block">Submit !</button>
-            </form>
+    <div class="hero-unit geddy-welcome-box">
+        <div class="row login-box">
+            <h3>Send parcel delivery status to your email for free.</h3>
+            <div class="span4 offset3" style="margin-top: 30px;">
+                <div class="hide alert alert-error" id="error"> <a class="close" href="#">×</a><div id="error-msg"></div></div>
+                <div class="hide alert alert-info" id="info"> <a class="close" href="#">×</a><div id="info-msg"></div></div>
+                <form method="POST" id="monitor" action="/monitor" accept-charset="UTF-8">
+                    <input type="text" id="posid" class="span4" name="id" placeholder="Tracking number (ex: EM273357023MY)" required>
+                    <input type="email" id="notifyemail" class="span4" name="notifyemail" placeholder="Email address" required>
+                    <br />
+                    <br />
+                    <button type="submit" name="submit" class="btn btn-info btn-block">Submit !</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 <center>
-<div class="fb-like" data-href="http://poslajutracking.herokuapp.com" data-layout="standard" data-action="like" data-width="280" data-show-faces="true" data-share="false"></div>
+<div class="fb-like" data-href="http://poslajutracking.herokuapp.com" data-layout="standard" data-action="like" data-width="300" data-show-faces="true" data-share="false"></div>
 </center>
 
 <script type="text/javascript">
