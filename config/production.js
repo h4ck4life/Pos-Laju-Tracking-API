@@ -28,14 +28,17 @@ var config = {
   
 , db: {
     mongo: {
-      username: 'poslajutracking'
+      username: 'alifaziz@gmail.com'
     , dbname: 'poslajutracking'
     , prefix: null
-    , password: '12345678'
-    , host: 'filavents.com'
-    , port: 27017
+    , password: 'athirah89'
+    , host: 'emma.mongohq.com'
+    , port: 10094
     }
   }
+
+// mongo emma.mongohq.com:10094/poslajutracking -u <user> -p<password>  
+  
 /*
  // Using Postgres as the default, with only a Postgres DB
 , model: {
