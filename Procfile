@@ -1,1 +1,1 @@
-web: geddy -e production --port=$PORT
+web: geddy -e production
