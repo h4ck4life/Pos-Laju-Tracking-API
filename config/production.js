@@ -28,10 +28,10 @@ var config = {
   
 , db: {
     mongo: {
-      username: 'alifaziz@gmail.com'
+      username: 'alifaziz'
     , dbname: 'poslajutracking'
     , prefix: null
-    , password: 'athirah89'
+    , password: '12345678'
     , host: 'emma.mongohq.com'
     , port: 10094
     }
