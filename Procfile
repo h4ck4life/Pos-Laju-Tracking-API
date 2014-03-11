@@ -1,1 +1,1 @@
-web: geddy -e development  -p $PORT
+web: geddy -e production  -p $PORT
