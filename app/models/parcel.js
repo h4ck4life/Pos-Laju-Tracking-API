@@ -4,7 +4,9 @@ var Parcel = function () {
     posid: {type: 'string'},
     status: {type: 'string'},
     delivered: {type: 'number'},
-    notifyemail: {type: 'string'}
+    notifyemail: {type: 'string'},
+    ccnotifyemail: {type: 'string'},
+    postitle: {type: 'string'}
   });
 
   /*

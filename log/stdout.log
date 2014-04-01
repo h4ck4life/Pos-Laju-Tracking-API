@@ -1,6 +1,6 @@
-[Tue, 24 Dec 2013 17:49:12 GMT] INFO Server starting with config: {
+[Tue, 01 Apr 2014 07:29:06 GMT] INFO Server starting with config: {
   "environment": "development",
-  "workers": "1",
+  "workers": 1,
   "port": 4000,
   "spdy": null,
   "ssl": null,
@@ -24,11 +24,13 @@
   "rotateWorkers": false,
   "rotationWindow": 7200000,
   "rotationTimeout": 300000,
-  "logDir": "/home/user/nodejs/poslaju_current/poslajutracking/log",
+  "logDir": "c:\\Users\\abdulamo\\nodejs\\poslajutracking\\log",
   "gracefulShutdownTimeout": 30000,
   "heartbeatInterval": 5000,
   "heartbeatWindow": 20000,
-  "staticFilePath": "/home/user/nodejs/poslaju_current/poslajutracking/public",
+  "staticFilePath": "c:\\Users\\abdulamo\\nodejs\\poslajutracking\\public",
+  "assetHost": "",
+  "assetBasePath": "/",
   "cacheControl": {
     "expires": {
       "default": 0
@@ -43,16 +45,18 @@
   "i18n": {
     "defaultLocale": "en-us",
     "loadPaths": [
-      "/home/user/nodejs/poslaju_current/poslajutracking/config/locales"
+      "c:\\Users\\abdulamo\\nodejs\\poslajutracking\\config\\locales"
     ]
   },
+  "appName": "Geddy App",
   "hostname": null,
   "fullHostname": null,
   "connectCompatibility": false,
+  "mailer": null,
   "model": {
     "defaultAdapter": "memory"
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Tue, 24 Dec 2013 17:49:12 GMT] INFO Creating 1 worker process.
-[Tue, 24 Dec 2013 17:49:13 GMT] INFO Server worker running in development on port 4000 with a PID of: 12444
+[Tue, 01 Apr 2014 07:29:06 GMT] INFO Creating 1 worker process.
+[Tue, 01 Apr 2014 07:29:13 GMT] INFO Server worker running in development on port 4000 with a PID of: 11544

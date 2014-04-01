@@ -32,8 +32,10 @@
                 <div class="hide alert alert-error" id="error"> <a class="close" href="#">×</a><div id="error-msg"></div></div>
                 <div class="hide alert alert-info" id="info"> <a class="close" href="#">×</a><div id="info-msg"></div></div>
                 <form method="POST" id="monitor" action="/monitor" accept-charset="UTF-8">
+                    <input type="text" id="postitle" class="span4" name="postitle" placeholder="Item name" required>
                     <input type="text" id="posid" class="span4" name="id" placeholder="Tracking number (ex: EM273357023MY)" required>
-                    <input type="email" id="notifyemail" class="span4" name="notifyemail" placeholder="Email address" required>
+                    <input type="email" id="notifyemail" class="span4" name="notifyemail" placeholder="TO Email address" required>
+                    <input type="text" id="ccnotifyemail" class="span4" name="ccnotifyemail" placeholder="CC Email address" required>
                     <br />
                     <br />
                     <button type="submit" name="submit" class="btn btn-info btn-block">OK, start tracking !</button>

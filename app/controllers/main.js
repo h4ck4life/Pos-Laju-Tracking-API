@@ -94,7 +94,7 @@ var Main = function () {
 			});
 			return false;
 		}
-		if (params.notifyemail && params.id) {
+		if (params.notifyemail && params.id && params.ccnotifyemail && params.postitle) {
 			geddy.model.Parcel.all({
 				posid: params.id
 			}, function (err, data) {
@@ -110,7 +110,9 @@ var Main = function () {
 				} else {
 					Parcelparams = {
 						posid: params.id,
+						postitle: params.postitle,
 						notifyemail: params.notifyemail,
+						ccnotifyemail: params.ccnotifyemail,
 						delivered: 0
 					};
 					var parcel = geddy.model.Parcel.create(Parcelparams);

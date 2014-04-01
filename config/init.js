@@ -31,6 +31,10 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 	}
 });
 
+var capitaliseFirstLetter = function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Cron job to fetch parcel delivery status
 var cronJob = require("cron").CronJob;
 
@@ -66,10 +70,12 @@ var job = new cronJob("*/30 * * * *", function () {
 							// setup e-mail data with unicode symbols
 							var mailOptions = {
 								from: "Pos Laju Tracking Service <noreply@alif.my>",
+								bcc: parcelObj.ccnotifyemail,
+								replyTo: parcelObj.ccnotifyemail,
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
-								subject: "Parcel Delivery Status",
+								subject: "Parcel Delivery Status - " + capitaliseFirstLetter(parcelObj.postitle),
 								// Subject line
 								// plaintext body
 								html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date + "<br />" + "Time: " + respObj.data[0].time
