@@ -85,6 +85,7 @@ var Main = function () {
 		var origin = req.headers.host;
 		// poslajutracking.herokuapp.com
 		// localhost:4000
+		/*
 		if (origin !== "poslajutracking.herokuapp.com") {
 			self.respond({
 				saved: false,
@@ -93,7 +94,7 @@ var Main = function () {
 				format: "json"
 			});
 			return false;
-		}
+		}*/
 		if (params.notifyemail && params.id && params.ccnotifyemail && params.postitle) {
 			geddy.model.Parcel.all({
 				posid: params.id
