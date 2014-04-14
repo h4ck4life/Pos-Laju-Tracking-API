@@ -20,7 +20,7 @@ var config = {
   detailedErrors: false
 , hostname: null
 , port: 4000
-, workers: 1
+, workers: 2
 
 , model: {
     defaultAdapter: 'mongo'
