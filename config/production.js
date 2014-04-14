@@ -28,6 +28,19 @@ var config = {
   
 , db: {
     mongo: {
+      username: 'poslajutrackinguser'
+    , dbname: 'poslajutracking'
+    , prefix: null
+    , password: 'poslajutrackinguserpro'
+    , host: 'filavents.com'
+    , port: 27017
+    }
+  }
+
+/*
+
+db: {
+    mongo: {
       username: 'alifaziz'
     , dbname: 'poslajutracking'
     , prefix: null
@@ -36,6 +49,8 @@ var config = {
     , port: 10094
     }
   }
+
+*/  
 
 // mongo emma.mongohq.com:10094/poslajutracking -u <user> -p<password>  
   
