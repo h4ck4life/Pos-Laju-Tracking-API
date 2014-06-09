@@ -47,6 +47,11 @@ body {
   margin: 5px;
 }
 
+.pos-textinput {
+  padding: 15px !important;
+  font-size: 18px !important;
+}
+
 @media (max-width:480px) {
   .hero-unit .pull-right {
     float: none;
