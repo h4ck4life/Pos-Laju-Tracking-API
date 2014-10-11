@@ -75,7 +75,7 @@ var job = new cronJob("*/30 * * * *", function () {
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
-								subject: "Parcel Delivery Status - " + capitaliseFirstLetter(parcelObj.postitle),
+								subject: "Parcel Delivery Status - " + parcelObj.posid + " - " + capitaliseFirstLetter(parcelObj.postitle),
 								// Subject line
 								// plaintext body
 								html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date + "<br />" + "Time: " + respObj.data[0].time

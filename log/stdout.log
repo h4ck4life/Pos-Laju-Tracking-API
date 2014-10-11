@@ -1,10 +1,11 @@
-[Mon, 09 Jun 2014 14:56:27 GMT] INFO Server starting with config: {
+[Sat, 11 Oct 2014 06:42:34 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": 1,
   "port": 4000,
   "spdy": null,
   "ssl": null,
   "detailedErrors": true,
+  "requestTimeout": null,
   "flash": {
     "defaultClass": "alert",
     "inlineClasses": {
@@ -21,14 +22,19 @@
     }
   },
   "debug": true,
+  "watch": {
+    "files": [],
+    "includePattern": "",
+    "excludePattern": ""
+  },
   "rotateWorkers": false,
   "rotationWindow": 7200000,
   "rotationTimeout": 300000,
-  "logDir": "C:\\Users\\abdulamo\\nodejs\\poslajutracking\\log",
+  "logDir": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\log",
   "gracefulShutdownTimeout": 30000,
   "heartbeatInterval": 5000,
   "heartbeatWindow": 20000,
-  "staticFilePath": "C:\\Users\\abdulamo\\nodejs\\poslajutracking\\public",
+  "staticFilePath": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\public",
   "assetHost": "",
   "assetBasePath": "/",
   "cacheControl": {
@@ -45,7 +51,7 @@
   "i18n": {
     "defaultLocale": "en-us",
     "loadPaths": [
-      "C:\\Users\\abdulamo\\nodejs\\poslajutracking\\config\\locales"
+      "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\config\\locales"
     ]
   },
   "appName": "Geddy App",
@@ -58,5 +64,5 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Mon, 09 Jun 2014 14:56:27 GMT] INFO Creating 1 worker process.
-[Mon, 09 Jun 2014 14:56:27 GMT] INFO Server worker running in development on port 4000 with a PID of: 8280
+[Sat, 11 Oct 2014 06:42:34 GMT] INFO Creating 1 worker process.
+[Sat, 11 Oct 2014 06:42:39 GMT] INFO Server worker running in development on port 4000 with a PID of: 16296
