@@ -94,4 +94,4 @@ var job = new cronJob("*/30 * * * *", function () {
 			});
 		}
 	});
-}, function () {}, true, "Asia/Kuala_Lumpur");
+}, function () {}, false, "Asia/Kuala_Lumpur");
