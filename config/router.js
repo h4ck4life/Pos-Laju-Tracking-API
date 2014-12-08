@@ -29,7 +29,7 @@ router.get("/price/domestic/:gram/zon/:id/:type").to("Main.priceDomestic");
 
 router.post("/monitor").to("Main.monitor");
 
-// router.get("/notify").to("Main.notify");
+router.get("/notify").to("Main.notify");
 
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');
