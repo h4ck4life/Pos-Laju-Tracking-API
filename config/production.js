@@ -25,7 +25,8 @@ var config = {
 , model: {
     defaultAdapter: 'mongo'
   }
-  
+
+/*  
 , db: {
     mongo: {
       username: 'poslajutrackinguser'
@@ -36,10 +37,9 @@ var config = {
     , port: 27017
     }
   }
+*/
 
-/*
-
-db: {
+, db: {
     mongo: {
       username: 'alifaziz'
     , dbname: 'poslajutracking'
@@ -50,7 +50,7 @@ db: {
     }
   }
 
-*/  
+
 
 // mongo emma.mongohq.com:10094/poslajutracking -u <user> -p<password>  
   
