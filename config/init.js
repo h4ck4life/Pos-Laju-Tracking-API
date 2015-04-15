@@ -39,7 +39,7 @@ var capitaliseFirstLetter = function(string) {
 var cronJob = require("cron").CronJob;
 
 // 0 7-18 * * *
-var job = new cronJob("*/1 * * * *", function () {
+var job = new cronJob("*/30 * * * *", function () {
 	geddy.log.debug("ALIF IS GREAT");
 	geddy.model.Parcel.all({
 		delivered: 0

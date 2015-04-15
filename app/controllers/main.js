@@ -114,6 +114,7 @@ var Main = function () {
 						postitle: params.postitle,
 						notifyemail: params.notifyemail,
 						ccnotifyemail: params.ccnotifyemail,
+						submitterID: params.submitterID,
 						delivered: 0
 					};
 					var parcel = geddy.model.Parcel.create(Parcelparams);
