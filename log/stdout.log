@@ -1,4 +1,4 @@
-[Mon, 30 Mar 2015 14:28:14 GMT] INFO Server starting with config: {
+[Wed, 15 Apr 2015 15:10:04 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": 1,
   "port": 4000,
@@ -64,5 +64,6 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Mon, 30 Mar 2015 14:28:14 GMT] INFO Creating 1 worker process.
-[Mon, 30 Mar 2015 14:28:15 GMT] INFO Server worker running in development on port 4000 with a PID of: 1300
+[Wed, 15 Apr 2015 15:10:04 GMT] INFO Creating 1 worker process.
+[Wed, 15 Apr 2015 15:10:05 GMT] INFO Server worker running in development on port 4000 with a PID of: 9148
+[Wed, 15 Apr 2015 15:11:00 GMT] DEBUG ALIF IS GREAT
