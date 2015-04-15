@@ -95,7 +95,7 @@ var Main = function () {
 			});
 			return false;
 		}*/
-		if (params.notifyemail && params.id && params.ccnotifyemail && params.postitle) {
+		if (params.notifyemail && params.id && params.postitle) {
 			geddy.model.Parcel.all({
 				posid: params.id
 			}, function (err, data) {

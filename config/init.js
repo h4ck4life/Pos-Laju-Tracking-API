@@ -75,10 +75,10 @@ var job = new cronJob("*/1 * * * *", function () {
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
-								subject: "Parcel Delivery Status - " + parcelObj.posid + " - " + capitaliseFirstLetter(parcelObj.postitle),
+								subject: "Parcel Status - " + parcelObj.posid + " - " + capitaliseFirstLetter(parcelObj.postitle),
 								// Subject line
 								// plaintext body
-								html: "Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
+								html: "<h1>Item:"+ capitaliseFirstLetter(parcelObj.postitle)  +"</h1>Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
 							};
 							// send mail with defined transport object
 							smtpTransport.sendMail(mailOptions, function (error, response) {
