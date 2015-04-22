@@ -50,7 +50,7 @@ var job = new cronJob("*/1 * * * *", function () {
 		// this is going to be costly. So... refactoring mgkin diperlukan later.
 		if (parceldata.length > 0) {
 			async.map(parceldata, function (parcelObj, callback) {
-				geddy.log.info("Sched Running: " + parcelObj.posid);
+				//geddy.log.info("Sched Running: " + parcelObj.posid);
 				poslajutracking.parseTrackingID(parcelObj.posid, null, null, function (respObj) {
 					// if the parcel has any data..
 					if (respObj.data.length > 0) {
@@ -71,7 +71,7 @@ var job = new cronJob("*/1 * * * *", function () {
 							var mailOptions = {
 								from: "Pos Laju Tracking Service <noreply@alif.my>",
 								bcc: parcelObj.ccnotifyemail,
-								replyTo: parcelObj.submitterID,
+								//replyTo: parcelObj.submitterID,
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
