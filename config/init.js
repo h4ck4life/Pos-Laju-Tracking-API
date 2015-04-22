@@ -71,20 +71,22 @@ var job = new cronJob("*/1 * * * *", function () {
 							var mailOptions = {
 								from: "Pos Laju Tracking Service <noreply@alif.my>",
 								bcc: parcelObj.ccnotifyemail,
-								//replyTo: parcelObj.ccnotifyemail,
+								replyTo: parcelObj.submitterID,
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
 								subject: "Parcel Status - " + parcelObj.posid + " - " + capitaliseFirstLetter(parcelObj.postitle),
 								// Subject line
 								// plaintext body
-								html: "<h1>Item:"+ capitaliseFirstLetter(parcelObj.postitle)  +"</h1>Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
+								html: "<h3>"+ capitaliseFirstLetter(parcelObj.postitle)  +"</h3>Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
 							};
 							// send mail with defined transport object
 							smtpTransport.sendMail(mailOptions, function (error, response) {
 								if (error) {
 									geddy.log.error("Error: " + error);
-								} else {}
+								} else {
+									geddy.log.info("EMAIL: " + response);
+								}
 							});
 						}
 					}
