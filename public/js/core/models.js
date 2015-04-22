@@ -7,7 +7,8 @@ var Parcel = function () {
     delivered: {type: 'number'},
     notifyemail: {type: 'string'},
     ccnotifyemail: {type: 'string'},
-    postitle: {type: 'string'}
+    postitle: {type: 'string'},
+    submitterID: {type: 'string'}
   });
 
   /*
