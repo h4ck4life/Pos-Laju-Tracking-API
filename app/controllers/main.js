@@ -116,7 +116,8 @@ var Main = function () {
 		}*/
 		if (params.notifyemail && params.id && params.postitle) {
 			geddy.model.Parcel.all({
-				posid: params.id
+				posid: params.id,
+				submitterID: params.submitterID
 			}, function (err, data) {
 				if (data.length > 0) {
 					self.respond({
