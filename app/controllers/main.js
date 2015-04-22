@@ -54,7 +54,7 @@ var Main = function () {
 	};
 	this.delete = function (req, respo, params) {
 	  var self = this;
-	  geddy.model.Parcel.remove({posid: params.id}, function (err, data) {
+	  geddy.model.Parcel.remove({posid: params.id, submitterID: params.submitterID}, function (err, data) {
       if (err) {
           self.respond({
               saved: false,
