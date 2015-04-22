@@ -70,6 +70,7 @@ var Main = function () {
           format: "json"
       });
     });
+    return false;
 	};
 	this.priceDomestic = function (req, respo, params) {
 		var self = this;

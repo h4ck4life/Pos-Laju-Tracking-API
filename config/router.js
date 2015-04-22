@@ -31,7 +31,6 @@ router.post("/monitor").to("Main.monitor");
 
 router.get("/delete/:id/:submitterID").to("Main.delete");
 
-
 router.get("/notify").to("Main.notify");
 
 // Basic routes
