@@ -52,6 +52,24 @@ var Main = function () {
 			}
 		}
 	};
+	this.delete = function (req, respo, params) {
+	  geddy.model.Parcelremove({posid: params.id}, function (err, data) {
+      if (err) {
+          self.respond({
+              saved: false,
+              debug: "Delete not successful. Please try again."
+          }, {
+              format: "json"
+          });
+          throw err;
+      }
+      self.respond({
+          saved: true
+      }, {
+          format: "json"
+      });
+    });
+	};
 	this.priceDomestic = function (req, respo, params) {
 		var self = this;
 		if (cache.get(params.gram + params.id) == null) {
