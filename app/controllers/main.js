@@ -53,7 +53,7 @@ var Main = function () {
 		}
 	};
 	this.delete = function (req, respo, params) {
-	  geddy.model.Parcelremove({posid: params.id}, function (err, data) {
+	  geddy.model.Parcel.remove({posid: params.id}, function (err, data) {
       if (err) {
           self.respond({
               saved: false,
