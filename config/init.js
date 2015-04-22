@@ -39,7 +39,7 @@ var capitaliseFirstLetter = function(string) {
 var cronJob = require("cron").CronJob;
 
 // 0 7-18 * * *
-var job = new cronJob("*/30 * * * *", function () {
+var job = new cronJob("*/1 * * * *", function () {
 	geddy.model.Parcel.all({
 		delivered: 0
 	}, function (err, data) {
@@ -70,7 +70,7 @@ var job = new cronJob("*/30 * * * *", function () {
 							var mailOptions = {
 								from: "Pos Laju Tracking Service <noreply@alif.my>",
 								bcc: parcelObj.ccnotifyemail,
-								replyTo: parcelObj.ccnotifyemail,
+								//replyTo: parcelObj.ccnotifyemail,
 								// sender address
 								//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
 								to: parcelObj.notifyemail,
@@ -89,7 +89,7 @@ var job = new cronJob("*/30 * * * *", function () {
 					}
 				});
 			}, function (err, stats) {
-				if (err) {} else {}
+				if (err) { geddy.log.error("Error: " + error); } else {}
 			});
 		}
 	});
