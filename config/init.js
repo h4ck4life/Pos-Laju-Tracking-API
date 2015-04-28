@@ -66,7 +66,7 @@ var job = new cronJob("*/30 * * * *", function () {
 				poslajutracking.parseTrackingID(parcelObj.posid, null, null, function (respObj) {
 					// if the parcel has any data..
 					if (respObj.data.length > 0) {
-						if (parcelObj.status !== respObj.data[0].process) {
+						if (parcelObj.status != respObj.data[0].process) {
 							// if the parcel successfullt delivered, set the delivered flag to 1.
 							if (respObj.data[0].process.search("Delivered") != -1) {
 								parcelObj.updateProperties({
