@@ -21,13 +21,13 @@ if (geddy.config.environment != "development") {
 // create reusable transport method (opens pool of SMTP connections)
 var smtpTransport = nodemailer.createTransport("SMTP", {
 	//service: "Gmail",
-	host: "mail.alif.my",
+	host: "smtp.mailgun.org",
 	// hostname
 	port: 587,
 	// port for secure SMTP
 	auth: {
-		user: "noreply@alif.my",
-		pass: "abcd1234"
+		user: "postmaster@mail.filaventscorp.com",
+		pass: "5800f85b3ae0100148506305d7d5ac47"
 	}
 });
 
