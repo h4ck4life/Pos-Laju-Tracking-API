@@ -1,4 +1,4 @@
-[Tue, 28 Apr 2015 04:12:58 GMT] INFO Server starting with config: {
+[Tue, 28 Apr 2015 04:29:45 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": 1,
   "port": 4000,
@@ -30,11 +30,11 @@
   "rotateWorkers": false,
   "rotationWindow": 7200000,
   "rotationTimeout": 300000,
-  "logDir": "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\log",
+  "logDir": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\log",
   "gracefulShutdownTimeout": 30000,
   "heartbeatInterval": 5000,
   "heartbeatWindow": 20000,
-  "staticFilePath": "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\public",
+  "staticFilePath": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\public",
   "assetHost": "",
   "assetBasePath": "/",
   "cacheControl": {
@@ -51,7 +51,7 @@
   "i18n": {
     "defaultLocale": "en-us",
     "loadPaths": [
-      "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\config\\locales"
+      "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\config\\locales"
     ]
   },
   "appName": "Geddy App",
@@ -64,6 +64,6 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Tue, 28 Apr 2015 04:12:58 GMT] INFO Creating 1 worker process.
-[Tue, 28 Apr 2015 04:12:59 GMT] INFO EMAIL: {"message":"Message Queued","messageId":"92a406c195f6a62186bc731690c06c@tpm4-ita-maaamohz","statusHandler":{"domain":null,"_events":{},"_maxListeners":10}}
-[Tue, 28 Apr 2015 04:12:59 GMT] INFO Server worker running in development on port 4000 with a PID of: 5484
+[Tue, 28 Apr 2015 04:29:45 GMT] INFO Creating 1 worker process.
+[Tue, 28 Apr 2015 04:29:47 GMT] INFO Server worker running in development on port 4000 with a PID of: 12040
+[Tue, 28 Apr 2015 04:29:48 GMT] INFO EMAIL: {"id":"<20150428042950.65709.8784@mail.filaventscorp.com>","message":"Queued. Thank you."}

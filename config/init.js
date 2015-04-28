@@ -4,6 +4,11 @@ var async = require("async");
 
 var poslajutracking = require("../lib/poslajutracking_lib.js");
 
+var api_key = 'key-d9b3f47caf9d0971c55853da10968274';
+var domain = 'mail.filaventscorp.com';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+
+
 // Add uncaught-exception handler in prod-like environments
 if (geddy.config.environment != "development") {
 	process.addListener("uncaughtException", function (err) {
@@ -18,43 +23,29 @@ if (geddy.config.environment != "development") {
 	});
 }
 
-// create reusable transport method (opens pool of SMTP connections)
-
-var smtpTransport = nodemailer.createTransport("", {
-	service: "Mailgun",
-	host: "smtp.mailgun.org",
-	// hostname
-	port: 587,
-	// port for secure SMTP
-	auth: {
-		user: "postmaster@mail.filaventscorp.com",
-		pass: "abcd1234"
-	}
-});
 
 
-// ==================== TEST SEND EMAIL:
-var mailOptions = {
-	from: "Pos Laju Tracking Service <noreply@filaventscorp.com>",
-	//bcc: "alifaziz@gmail.com",
-	//replyTo: parcelObj.submitterID,
-	// sender address
-	//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-	to: "alifaziz@gmail.com",
-	subject: "Parcel Status ",
-	// Subject line
-	// plaintext body
-	html: "whatever bro...."
+// ########################################
+
+/*var data = {
+  from: 'Excited User <noreply@filaventscorp>',
+  to: 'alifaziz@gmail.com',
+  bcc: 'mohd-alif_abdul-aziz@astro.com.my',
+  subject: 'Hello',
+  html: 'Testing some Mailgun awesomness!'
 };
-// send mail with defined transport object
-smtpTransport.sendMail(mailOptions, function (error, response) {
-	if (error) {
-		geddy.log.error("EMAIL: " + error);
-	} else {
-		geddy.log.info("EMAIL: " + JSON.stringify(response));
-	}
-});
-// =========================================
+
+mailgun.messages().send(data, function (error, body) {
+  if (error) {
+		geddy.log.error("Error: " + error);
+  } else {
+		geddy.log.info("EMAIL: " + JSON.stringify(body));
+  }
+});*/
+
+
+// ########################################
+
 
 var capitaliseFirstLetter = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -93,7 +84,7 @@ var job = new cronJob("*/30 * * * *", function () {
 							//console.log(parcelObj.posid);
 							parcelObj.save();
 							// setup e-mail data with unicode symbols
-							var mailOptions = {
+							var data = {
 								from: "Pos Laju Tracking Service <noreply@filaventscorp.com>",
 								bcc: parcelObj.ccnotifyemail,
 								//replyTo: parcelObj.submitterID,
@@ -106,12 +97,12 @@ var job = new cronJob("*/30 * * * *", function () {
 								html: "<h3>"+ capitaliseFirstLetter(parcelObj.postitle)  +"</h3>Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
 							};
 							// send mail with defined transport object
-							smtpTransport.sendMail(mailOptions, function (error, response) {
-								if (error) {
+							mailgun.messages().send(data, function (error, body) {
+							  if (error) {
 									geddy.log.error("Error: " + error);
-								} else {
-									geddy.log.info("EMAIL: " + JSON.stringify(response));
-								}
+							  } else {
+									geddy.log.info("EMAIL: " + JSON.stringify(body));
+							  }
 							});
 						}
 					}
