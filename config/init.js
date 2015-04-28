@@ -1,9 +1,5 @@
-var nodemailer = require("nodemailer");
-
 var async = require("async");
-
 var poslajutracking = require("../lib/poslajutracking_lib.js");
-
 var api_key = 'key-d9b3f47caf9d0971c55853da10968274';
 var domain = 'mail.filaventscorp.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
