@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "author": "Alif",
   "dependencies": {
-    "geddy": "0.11.8",
-    "mongodb": "1.4.0",
-    "memory-cache": "0.0.5",
-    "nodemailer": "~0.5.14",
+    "async": "~0.2.9",
     "cron": "~1.0.1",
-    "pg": "2.5.x",
-    "async": "~0.2.9"
+    "geddy": "0.11.8",
+    "memory-cache": "0.0.5",
+    "mongodb": "1.4.0",
+    "nodemailer": "~0.5.14",
+    "nodemailer-mailgun-transport": "git+https://github.com/orliesaurus/nodemailer-mailgun-transport.git",
+    "pg": "2.5.x"
   },
   "devDependencies": {},
   "engines": {
