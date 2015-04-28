@@ -9,7 +9,7 @@
     "memory-cache": "0.0.5",
     "mongodb": "1.4.0",
     "nodemailer": "~0.5.14",
-    "nodemailer-mailgun-transport": "git+https://github.com/orliesaurus/nodemailer-mailgun-transport.git",
+    //"nodemailer-mailgun-transport": "git+https://github.com/orliesaurus/nodemailer-mailgun-transport.git",
     "pg": "2.5.x"
   },
   "devDependencies": {},

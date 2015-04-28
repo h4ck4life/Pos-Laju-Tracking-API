@@ -1,4 +1,4 @@
-[Tue, 28 Apr 2015 04:08:44 GMT] INFO Server starting with config: {
+[Tue, 28 Apr 2015 04:12:58 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": 1,
   "port": 4000,
@@ -64,5 +64,6 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Tue, 28 Apr 2015 04:08:44 GMT] INFO Creating 1 worker process.
-[Tue, 28 Apr 2015 04:08:45 GMT] INFO Server worker running in development on port 4000 with a PID of: 12188
+[Tue, 28 Apr 2015 04:12:58 GMT] INFO Creating 1 worker process.
+[Tue, 28 Apr 2015 04:12:59 GMT] INFO EMAIL: {"message":"Message Queued","messageId":"92a406c195f6a62186bc731690c06c@tpm4-ita-maaamohz","statusHandler":{"domain":null,"_events":{},"_maxListeners":10}}
+[Tue, 28 Apr 2015 04:12:59 GMT] INFO Server worker running in development on port 4000 with a PID of: 5484
