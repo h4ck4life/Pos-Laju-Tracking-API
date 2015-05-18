@@ -7,9 +7,17 @@ var cache = require("memory-cache");
 
 var poslajutracking = require("../../lib/poslajutracking_lib.js");
 
-var Main = function () {
+var async = require("async");
+var api_key = 'key-d9b3f47caf9d0971c55853da10968274';
+var domain = 'mail.filaventscorp.com';
+var mailgun = require('mailgun-js')({
+	apiKey: api_key,
+	domain: domain
+});
+
+var Main = function() {
 	//nexmo.initialize("c3f76bb8", "571c5e4a", "http", false);
-	this.index = function (req, resp, params) {
+	this.index = function(req, resp, params) {
 		if (cache.get("index") == null) {
 			var respondObj = {
 				format: "html",
@@ -25,10 +33,10 @@ var Main = function () {
 			}, cache.get("index"));
 		}
 	};
-	this.get = function (req, respo, params) {
+	this.get = function(req, respo, params) {
 		var self = this;
 		if (cache.get(params.id) == null) {
-			poslajutracking.parseTrackingID(params.id, params.type, this, function (respObj) {
+			poslajutracking.parseTrackingID(params.id, params.type, this, function(respObj) {
 				cache.put(params.id, respObj, 9e5);
 				if (params.type === "json") {
 					self.respond(JSON.stringify(respObj), {
@@ -52,30 +60,33 @@ var Main = function () {
 			}
 		}
 	};
-	this.delete = function (req, respo, params) {
-	  var self = this;
-	  geddy.model.Parcel.remove({posid: params.id, submitterID: params.submitterid}, function (err, data) {
-      if (err) {
-          self.respond({
-              saved: false,
-              debug: "Delete not successful. Please try again."
-          }, {
-              format: "json"
-          });
-          throw err;
-      }
-      self.respond({
-          saved: true
-      }, {
-          format: "json"
-      });
-    });
-    return false;
+	this.delete = function(req, respo, params) {
+		var self = this;
+		geddy.model.Parcel.remove({
+			posid: params.id,
+			submitterID: params.submitterid
+		}, function(err, data) {
+			if (err) {
+				self.respond({
+					saved: false,
+					debug: "Delete not successful. Please try again."
+				}, {
+					format: "json"
+				});
+				throw err;
+			}
+			self.respond({
+				saved: true
+			}, {
+				format: "json"
+			});
+		});
+		return false;
 	};
-	this.priceDomestic = function (req, respo, params) {
+	this.priceDomestic = function(req, respo, params) {
 		var self = this;
 		if (cache.get(params.gram + params.id) == null) {
-			poslajutracking.parseDomesticPricing(params.gram, params.id, params.type, this, function (respObj) {
+			poslajutracking.parseDomesticPricing(params.gram, params.id, params.type, this, function(respObj) {
 				cache.put(params.gram + params.id, respObj, 864e5);
 				if (params.type === "json") {
 					self.respond(JSON.stringify(respObj), {
@@ -99,7 +110,7 @@ var Main = function () {
 			}
 		}
 	};
-	this.monitor = function (req, respo, params) {
+	this.monitor = function(req, respo, params) {
 		var self = this;
 		var Parcelparams;
 		var origin = req.headers.host;
@@ -119,7 +130,7 @@ var Main = function () {
 			geddy.model.Parcel.all({
 				posid: params.id,
 				submitterID: params.submitterID
-			}, function (err, data) {
+			}, function(err, data) {
 				if (data.length > 0) {
 					self.respond({
 						saved: false,
@@ -140,7 +151,7 @@ var Main = function () {
 					};
 					var parcel = geddy.model.Parcel.create(Parcelparams);
 					if (parcel.isValid()) {
-						parcel.save(function (err, data) {
+						parcel.save(function(err, data) {
 							if (err) {
 								self.respond({
 									saved: false,
@@ -169,7 +180,7 @@ var Main = function () {
 			});
 		}
 	};
-	this.notify = function (req, respo, params) {
+	this.notify = function(req, respo, params) {
 		var paramsRender = {
 			title: 'Pos Laju Parcel Status Notifier'
 		};
@@ -183,6 +194,73 @@ var Main = function () {
 		} else {
 			this.respond(paramsRender, cache.get("notify"));
 		}
+	};
+	this.blast = function(req, respo, params) {
+
+		// PRIVATE CLASS
+		var capitaliseFirstLetter = function(string) {
+			return string.charAt(0).toUpperCase() + string.slice(1);
+		};
+
+		geddy.model.Parcel.all({
+			delivered: 0
+		}, function(err, data) {
+			var parceldata = data;
+			if (err) {
+				throw err;
+			}
+			// this is going to be costly. So... refactoring mgkin diperlukan later.
+			if (parceldata.length > 0) {
+				async.map(parceldata, function(parcelObj, callback) {
+					//geddy.log.info("Sched Running: " + parcelObj.posid);
+					poslajutracking.parseTrackingID(parcelObj.posid, null, null, function(respObj) {
+						// if the parcel has any data..
+						if (respObj.data.length > 0) {
+							if (parcelObj.status != respObj.data[0].process) {
+								// if the parcel successfullt delivered, set the delivered flag to 1.
+								if (respObj.data[0].process.search("Delivered") != -1) {
+									parcelObj.updateProperties({
+										delivered: 1
+									});
+								}
+								// save the current status
+								parcelObj.updateProperties({
+									status: respObj.data[0].process
+								});
+								//console.log(parcelObj.posid);
+								parcelObj.save();
+								// setup e-mail data with unicode symbols
+								var data = {
+									from: "Pos Laju Tracking Service <noreply@filaventscorp.com>",
+									bcc: parcelObj.ccnotifyemail,
+									//replyTo: parcelObj.submitterID,
+									// sender address
+									//to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
+									to: parcelObj.notifyemail,
+									subject: "Parcel Status - " + parcelObj.posid + " - " + capitaliseFirstLetter(parcelObj.postitle),
+									// Subject line
+									// plaintext body
+									html: "<h3>" + capitaliseFirstLetter(parcelObj.postitle) + "</h3>Process: " + respObj.data[0].process + "<br />" + "Office: " + respObj.data[0].office + "<br />" + "Date: " + respObj.data[0].date
+								};
+								// send mail with defined transport object
+								mailgun.messages().send(data, function(error, body) {
+									if (error) {
+										geddy.log.error("Error: " + error);
+									} else {
+										geddy.log.info("EMAIL: " + JSON.stringify(body));
+									}
+								});
+							}
+						}
+					});
+				}, function(err, stats) {
+					if (err) {
+						geddy.log.error("Error: " + error);
+					} else {}
+				});
+			}
+		});
+
 	};
 };
 

@@ -33,6 +33,8 @@ router.get("/delete/:id").to("Main.delete");
 
 router.get("/notify").to("Main.notify");
 
+router.get("/blast").to("Main.blast");
+
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');
 //

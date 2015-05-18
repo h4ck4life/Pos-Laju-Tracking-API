@@ -43,7 +43,7 @@ mailgun.messages().send(data, function (error, body) {
 // ########################################
 
 
-var capitaliseFirstLetter = function(string) {
+/*var capitaliseFirstLetter = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -108,4 +108,4 @@ var job = new cronJob("*/30 * * * *", function () {
 			});
 		}
 	});
-}, function () {}, true, "Asia/Kuala_Lumpur");
+}, function () {}, true, "Asia/Kuala_Lumpur");*/
