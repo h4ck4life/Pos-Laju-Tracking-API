@@ -258,6 +258,14 @@ var Main = function() {
 						geddy.log.error("Error: " + error);
 					} else {}
 				});
+
+				// return message lah bro:
+				self.respond({
+					process: true,
+					debug: "Operation done."
+				}, {
+					format: "json"
+				});
 			}
 		});
 
