@@ -196,7 +196,7 @@ var Main = function() {
 		}
 	};
 	this.blast = function(req, respo, params) {
-
+		var self = this;
 		// PRIVATE CLASS
 		var capitaliseFirstLetter = function(string) {
 			return string.charAt(0).toUpperCase() + string.slice(1);
