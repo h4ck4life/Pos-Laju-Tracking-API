@@ -42,34 +42,15 @@ var config = {
 
 , db: {
     mongo: {
-      username: 'alifaziz'
-    , dbname: 'poslajutracking'
+      username: ''
+    , dbname: ''
     , prefix: null
-    , password: '12345678'
-    , host: 'emma.mongohq.com'
+    , password: ''
+    , host: ''
     , port: 10094
     }
   }
 
-
-
-// mongo emma.mongohq.com:10094/poslajutracking -u <user> -p<password>  
-  
-/*
- // Using Postgres as the default, with only a Postgres DB
-, model: {
-    defaultAdapter: 'postgres'
-  }
-, db: {
-    postgres: {
-      user: 'alifaziz'
-    , database: 'poslajutracking'
-    , password: 'athirah89'
-    , host: 'filavents.com'
-    , port: 5432
-    }
-  }
-*/
 
 /* // Using Postgres as the default, with both Postgres and Riak
 , model: {
