@@ -27,7 +27,8 @@ var config = {
         store: "memory",
         key: "sid",
         expiry: 14 * 24 * 60 * 60
-    }
+    },
+    appName: "Pos Laju Tracking API"
 };
 
 module.exports = config;

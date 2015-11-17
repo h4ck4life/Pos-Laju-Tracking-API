@@ -1,6 +1,6 @@
 {
   "name": "poslaju",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Alif",
   "dependencies": {
     "async": "~0.2.9",
@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "0.10.x",
+    "node": "4.2.1",
     "npm": "1.4.23"
   }
 }
