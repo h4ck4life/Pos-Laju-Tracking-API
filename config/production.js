@@ -27,19 +27,6 @@ var config = {
     defaultAdapter: 'mongo'
   }
 
-/*  
-, db: {
-    mongo: {
-      username: 'poslajutrackinguser'
-    , dbname: 'poslajutracking'
-    , prefix: null
-    , password: 'poslajutrackinguserpro'
-    , host: '128.199.218.200'
-    , port: 27017
-    }
-  }
-*/
-
 , db: {
     mongo: {
       username: ''
