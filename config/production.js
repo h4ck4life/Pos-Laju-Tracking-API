@@ -18,6 +18,7 @@
 
 var config = {
   detailedErrors: false
+, appName: "Pos Laju Tracking API"
 , hostname: null
 , port: 4000
 , workers: 2

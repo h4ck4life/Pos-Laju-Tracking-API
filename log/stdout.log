@@ -1,4 +1,4 @@
-[Tue, 17 Nov 2015 16:11:37 GMT] INFO Server starting with config: {
+[Tue, 17 Nov 2015 16:33:26 GMT] INFO Server starting with config: {
   "environment": "development",
   "workers": 1,
   "port": 4000,
@@ -30,11 +30,11 @@
   "rotateWorkers": false,
   "rotationWindow": 7200000,
   "rotationTimeout": 300000,
-  "logDir": "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\log",
+  "logDir": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\log",
   "gracefulShutdownTimeout": 30000,
   "heartbeatInterval": 5000,
   "heartbeatWindow": 20000,
-  "staticFilePath": "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\public",
+  "staticFilePath": "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\public",
   "assetHost": "",
   "assetBasePath": "/",
   "cacheControl": {
@@ -51,7 +51,7 @@
   "i18n": {
     "defaultLocale": "en-us",
     "loadPaths": [
-      "D:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\config\\locales"
+      "d:\\Users\\MAAAMOHZ\\nodejs\\poslajutracking\\config\\locales"
     ]
   },
   "appName": "Pos Laju Tracking API",
@@ -64,5 +64,5 @@
   },
   "secret": "VtD24l4Ad5RupMnIB9DG2rXB1aXbk7lUl7Fmeoxxj8Nz1GcQgh6dnzO3VRR27hFPiDCASobq0G0NrBM9dKf8RcbSmwccEzmm32mJiQkkvv4vz8jgsijVcefh9IhSXVME"
 }
-[Tue, 17 Nov 2015 16:11:37 GMT] INFO Creating 1 worker process.
-[Tue, 17 Nov 2015 16:11:38 GMT] INFO Server worker running in development on port 4000 with a PID of: 6176
+[Tue, 17 Nov 2015 16:33:26 GMT] INFO Creating 1 worker process.
+[Tue, 17 Nov 2015 16:33:27 GMT] INFO Server worker running in development on port 4000 with a PID of: 9152
