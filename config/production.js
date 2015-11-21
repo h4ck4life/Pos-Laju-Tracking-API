@@ -24,10 +24,11 @@ var config = {
 , workers: 2
 
 , model: {
-    defaultAdapter: 'mongo'
+    // defaultAdapter: 'mongo'
+    defaultAdapter: "memory"
   }
 
-, db: {
+/*, db: {
     mongo: {
       username: ''
     , dbname: ''
@@ -36,7 +37,7 @@ var config = {
     , host: ''
     , port: 10094
     }
-  }
+  }*/
 
 
 /* // Using Postgres as the default, with both Postgres and Riak
