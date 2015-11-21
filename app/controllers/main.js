@@ -18,7 +18,7 @@ var mailgun = require('mailgun-js')({
 var Main = function() {
 	//nexmo.initialize("c3f76bb8", "571c5e4a", "http", false);
 	this.index = function(req, resp, params) {
-		if (cache.get("index") == null) {
+		if (cache.get("index") === null) {
 			var respondObj = {
 				format: "html",
 				template: "app/views/main/index"
@@ -35,7 +35,7 @@ var Main = function() {
 	};
 	this.get = function(req, respo, params) {
 		var self = this;
-		if (cache.get(params.id) == null) {
+		if (cache.get(params.id) === null) {
 			poslajutracking.parseTrackingID(params.id, params.type, this, function(respObj) {
 				cache.put(params.id, respObj, 9e5);
 				if (params.type === "json") {
@@ -85,7 +85,7 @@ var Main = function() {
 	};
 	this.priceDomestic = function(req, respo, params) {
 		var self = this;
-		if (cache.get(params.gram + params.id) == null) {
+		if (cache.get(params.gram + params.id) === null) {
 			poslajutracking.parseDomesticPricing(params.gram, params.id, params.type, this, function(respObj) {
 				cache.put(params.gram + params.id, respObj, 864e5);
 				if (params.type === "json") {
@@ -184,7 +184,7 @@ var Main = function() {
 		var paramsRender = {
 			title: 'Pos Laju Parcel Status Notifier'
 		};
-		if (cache.get("notify") == null) {
+		if (cache.get("notify") === null) {
 			var respondObj = {
 				format: "html",
 				template: "app/views/main/notify"
