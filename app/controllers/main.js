@@ -35,7 +35,7 @@ var Main = function () {
 		var self = this;
 		if (cache.get(params.id) === null) {
 			poslajutracking.parseTrackingID(params.id, params.type, this, function (respObj) {
-				cache.put(params.id, respObj, 9e5);
+				//cache.put(params.id, respObj, 9e5);
 				if (params.type === "json") {
 					self.respond(JSON.stringify(respObj), {
 						format: "js"
