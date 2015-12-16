@@ -1,0 +1,2 @@
+[Wed, 16 Dec 2015 09:47:47 GMT] ACCESS ::1 - - [Wed Dec 16 2015 17:47:44 GMT+0800 (Malay Peninsula Standard Time)] "GET /track/EF661748473MY 1.1" 200 848 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36"
+[Wed, 16 Dec 2015 09:47:47 GMT] ACCESS ::1 - - [Wed Dec 16 2015 17:47:47 GMT+0800 (Malay Peninsula Standard Time)] "GET /favicon.ico 1.1" 200 378 "http://localhost:4000/track/EF661748473MY" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36"
